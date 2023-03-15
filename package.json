@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "astro-minimal-template",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,9 +7,15 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint ."
   },
   "dependencies": {
     "astro": "^2.0.18"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
+    "eslint-plugin-astro": "^0.24.0"
   }
 }
