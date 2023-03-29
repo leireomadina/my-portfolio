@@ -14,7 +14,8 @@
 	},
 	"dependencies": {
 		"@astrojs/sitemap": "^1.2.1",
-		"astro": "^2.0.18"
+		"astro": "^2.0.18",
+		"sass": "^1.60.0"
 	},
 	"devDependencies": {
 		"@typescript-eslint/parser": "^5.55.0",
