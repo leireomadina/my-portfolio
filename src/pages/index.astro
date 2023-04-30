@@ -1,9 +1,10 @@
 ---
-import Layout from "@layouts/BaseLayout.astro";
+import Layout from "@layouts/BaseLayout.astro"
 ---
 
 <Layout>
-	<h1>Astro</h1>
+	<h1>leire.</h1>
+	<p>Full-stack <span>developer</span></p>
 </Layout>
 
 
@@ -12,7 +13,16 @@ import Layout from "@layouts/BaseLayout.astro";
 		background-color: tomato;
 
 		& h1 {
+			font-family: 'Domine Bold';
 			color: white;
+		}
+		
+		& p {
+			font-family: 'Roboto Regular';
+		}
+
+		& span {
+			font-family: 'Roboto Bold';
 		}
 	}
 </style>
