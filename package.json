@@ -13,16 +13,16 @@
 		"format": "prettier --write \"**/*.{js,jsx,astro,ts,cjs,mjs}\""
 	},
 	"dependencies": {
-		"@astrojs/sitemap": "^1.2.1",
-		"astro": "^2.0.18",
-		"sass": "^1.60.0"
+		"@astrojs/sitemap": "^1.4.0",
+		"astro": "^3.1.0",
+		"sass": "^1.67.0"
 	},
 	"devDependencies": {
-		"@typescript-eslint/parser": "^5.55.0",
-		"eslint": "^8.36.0",
+		"@typescript-eslint/parser": "^5.62.0",
+		"eslint": "^8.49.0",
 		"eslint-plugin-astro": "^0.24.0",
-		"prettier": "^2.8.4",
-		"prettier-plugin-astro": "^0.8.0",
-		"vitest": "^0.29.7"
+		"prettier": "^2.8.8",
+		"prettier-plugin-astro": "^0.8.1",
+		"vitest": "^0.29.8"
 	}
 }
