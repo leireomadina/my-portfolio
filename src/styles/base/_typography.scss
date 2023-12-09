@@ -1,40 +1,40 @@
 /**
  * Typography
  * =================================
- *  - Domine Bold
- *  - Domine Medium
- *  - Roboto Bold
- *  - Roboto Regular
+ *  - Playfair Display Bold
+ *  - Playfair Display SemiBold Italic
+ *  - Inter SemiBold
+ *  - Inter Regular
  */
 
 @font-face {
-	font-family: 'Domine Bold';
-	src: local('Domine Bold'), local('Domine-Bold'),
-		url('/fonts/Domine-Bold.ttf') format('truetype');
+	font-family: 'Playfair Display Bold';
+	src: local('Playfair Display Bold'), local('PlayfairDisplay-Bold'),
+		url('/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
 	font-weight: 700;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Domine Medium';
-	src: local('Domine Medium'), local('Domine-Medium'),
-		url('/fonts/Domine-Medium.ttf') format('truetype');
-	font-weight: 500;
+	font-family: 'Playfair Display SemiBold Italic';
+	src: local('Playfair Display SemiBold Italic'), local('PlayfairDisplay-SemiBold-Italic'),
+		url('/fonts/PlayfairDisplay-SemiBoldItalic.ttf') format('truetype');
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Inter SemiBold';
+	src: local('Inter SemiBold'), local('Inter-SemiBold'),
+		url('/fonts/Inter-SemiBold.ttf') format('truetype');
+	font-weight: 600;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Roboto Bold';
-	src: local('Roboto Bold'), local('Domine-Medium'),
-		url('/fonts/Roboto-Bold.ttf') format('truetype');
-	font-weight: 700;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Roboto Regular';
-	src: local('Roboto Regular'), local('Roboto-Regular'),
-		url('/fonts/Roboto-Regular.ttf') format('truetype');
+	font-family: 'Inter Regular';
+	src: local('Inter Regular'), local('Inter-Regular'),
+		url('/fonts/Inter-Regular.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 }
