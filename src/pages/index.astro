@@ -1,71 +1,107 @@
 ---
 import Layout from '@layouts/BaseLayout.astro'
+import Socials from '@components/Socials.astro'
+import { Image } from 'astro:assets'
+import myPhoto from '@assets/images/leire.jpg'
 ---
 
 <Layout>
 	<header>
 		<h1>
 			leire.
-			<br />
 			<span>I craft digital experiences</span>
 		</h1>
 	</header>
 	<main>
 		<p>
-			<strong>Full-stack developer</strong> with 2+ years of experience currently
-			working at <a
+			<span>Full-stack developer</span> with 2.5+ years of experience currently working
+			at <a
 				href="https://www.zorraquino.com/"
 				target="_blank"
 				title="Visit Zorraquino's website"
-				rel="noopener noreferer">Zorraquino</a
+				rel="noopener noreferer"><span>Zorraquino</span></a
 			>, an award-winning design consultancy. Passionate about user-focused
 			interface development and strategy-driven creative processes.
 		</p>
 		<p>
-			Versatile and detail-oriented self-taught programmer with prior
-			experience in the architecture, research and design sectors. UX/UI and
-			Design Systems enthusiast motivated to work on a team focused on good
-			practices, continuous learning, feedback-driven culture and transparency.
+			Versatile and detail-oriented self-taught programmer with prior experience
+			in the architecture, research and design sectors. UX/UI and Design Systems
+			enthusiast motivated to work on a team focused on good practices,
+			continuous learning, feedback-driven culture and transparency.
 		</p>
-		<p></p>
-		<p>Find me on:</p>
-		<ul>
-			<li>
-				<a
-					href="https://www.linkedin.com/in/leire-orde%C3%B1ana/"
-					target="_blank"
-					rel="noopener noreferer"
-					title="Take a look at my Linkedin profile">Linkedin</a
-				>
-			</li>
-			<li>
-				<a
-					href="https://github.com/leireomadina"
-					target="_blank"
-					rel="noopener noreferer"
-					title="Take a look at my Github profile">Github</a
-				>
-			</li>
-		</ul>
+		<div class="socials-container">
+			<div>
+				<p>Find me on:</p>
+				<Socials />
+			</div>
+			<Image src={myPhoto} alt="My photo" />
+		</div>
 		<p>🤘 Getxo, Basque country</p>
 	</main>
 </Layout>
 
-<style lang="scss">
-	body {
-		font-family: 'Roboto Regular';
+<style lang="scss" scoped>
+	body.app {
+		padding: 2rem 1rem;
+		font-family: $font-body;
+		font-size: 1.2rem;
+		background-color: $color-light;
+
+		@include tablet {
+			max-width: 600px;
+			margin: 0 auto;
+		}
 	}
 
 	h1 {
-		font-family: 'Domine Bold';
-		font-size: 48px;
-		font-style: italic;
+		margin-top: 0;
+		font-family: $font-title;
+		font-size: 3.5rem;
 
 		& span {
-			font-family: 'Domine Medium';
-			font-weight: 500;
-			font-size: 24px;
-			font-style: normal;
+			display: block;
+			font-family: $font-subtitle;
+			font-size: toRem(24px);
+		}
+	}
+
+	span {
+		font-family: $font-body-bold;
+	}
+
+	a,
+	a:visited {
+		color: $color-black;
+	}
+
+	.socials-container {
+		display: flex;
+		gap: 1rem;
+		font-size: 1rem;
+
+		@include mobile {
+			font-size: 1.2rem;
+		}
+
+		+ p {
+			font-size: 1rem;
+
+			@include mobile {
+				font-size: 1.2rem;
+			}
+		}
+
+		div {
+			flex: 1 0 30%;
+
+			@include desktop {
+				flex: 1 0 40%;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: auto;
 		}
 	}
 </style>
