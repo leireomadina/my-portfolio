@@ -1,0 +1,50 @@
+---
+import ArrowIcon from '@assets/icons/arrow-diagonal-up-right.astro'
+---
+
+<nav>
+	<ul>
+		<li>
+			<a
+				href="https://www.linkedin.com/in/leire-orde%C3%B1ana/"
+				target="_blank"
+				rel="noopener noreferer"
+				title="Take a look at my Linkedin profile">Linkedin</a
+			>
+			<ArrowIcon />
+		</li>
+		<li>
+			<a
+				href="https://github.com/leireomadina"
+				target="_blank"
+				rel="noopener noreferer"
+				title="Take a look at my Github profile">Github</a
+			>
+			<ArrowIcon />
+		</li>
+		<li>
+			<a
+				href="https://www.behance.net/leireomadina"
+				target="_blank"
+				rel="noopener noreferer"
+				title="Take a look at my Behance profile">Behance</a
+			>
+			<ArrowIcon />
+		</li>
+	</ul>
+</nav>
+
+<style lang="scss">
+	li {
+		display: flex;
+		align-items: center;
+
+		&:not(li) {
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	a {
+		color: $color-black;
+	}
+</style>
