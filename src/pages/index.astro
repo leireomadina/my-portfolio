@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/BaseLayout.astro'
 import Socials from '@components/Socials.astro'
+import Link from '@components/Link.astro'
 import { Image } from 'astro:assets'
 import myPhoto from '@assets/images/leire.jpg'
 ---
@@ -13,31 +14,36 @@ import myPhoto from '@assets/images/leire.jpg'
 		</h1>
 	</header>
 	<main>
-		<p>
-			<span>Full-stack developer</span> with 2.5+ years of experience currently working
-			at <a
-				href="https://www.zorraquino.com/"
-				target="_blank"
-				title="Visit Zorraquino's website"
-				rel="noopener noreferer"><span>Zorraquino</span></a
-			>, an award-winning design consultancy. Passionate about user-focused
-			interface development and strategy-driven creative processes.
-		</p>
-		<p>
-			Versatile and detail-oriented self-taught programmer with prior experience
-			in the architecture, research and design sectors. UX/UI and Design Systems
-			enthusiast motivated to work on a team focused on good practices,
-			continuous learning, feedback-driven culture and transparency.
-		</p>
-		<div class="socials-container">
-			<div>
-				<p>Find me on:</p>
-				<Socials />
+		<section>
+			<p>
+				<span>Full-stack developer</span> with 2.5+ years of experience currently working at
+				<Link
+					href="https://www.zorraquino.com/"
+					title="Visit Zorraquino's website"
+					isExternalLink
+				>
+					<span>Zorraquino</span>
+				</Link>,
+				an award-winning design consultancy. Passionate about user-focused interface development and strategy-driven creative processes.
+			</p>
+			<p>
+				Versatile and detail-oriented self-taught programmer with prior experience
+				in the architecture, research and design sectors. UX/UI and Design Systems
+				enthusiast motivated to work on a team focused on good practices,
+				continuous learning, feedback-driven culture and transparency.
+			</p>
+			<div class="socials-container">
+				<div>
+					<p>Find me on:</p>
+					<Socials />
+				</div>
+				<Image src={myPhoto} alt="My photo" />
 			</div>
-			<Image src={myPhoto} alt="My photo" />
-		</div>
-		<p>🤘 Getxo, Basque country</p>
+		</section>
 	</main>
+	<footer>
+		<p>🤘 Getxo, Basque country</p>
+	</footer>
 </Layout>
 
 <style lang="scss" scoped>
@@ -83,14 +89,6 @@ import myPhoto from '@assets/images/leire.jpg'
 			font-size: 1.2rem;
 		}
 
-		+ p {
-			font-size: 1rem;
-
-			@include mobile {
-				font-size: 1.2rem;
-			}
-		}
-
 		div {
 			flex: 1 0 30%;
 
@@ -102,6 +100,14 @@ import myPhoto from '@assets/images/leire.jpg'
 		img {
 			width: 100%;
 			height: auto;
+		}
+	}
+
+	footer p {
+		font-size: 1rem;
+
+		@include mobile {
+			font-size: 1.2rem;
 		}
 	}
 </style>
