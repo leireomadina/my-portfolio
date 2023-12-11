@@ -1,44 +1,16 @@
 ---
 import Layout from '@layouts/BaseLayout.astro'
+import Header from '@components/Header.astro'
+import AboutMe from '@components/AboutMe.astro'
 import Socials from '@components/Socials.astro'
-import Link from '@components/Link.astro'
-import { Image } from 'astro:assets'
-import myPhoto from '@assets/images/leire.jpg'
 ---
 
 <Layout>
-	<header>
-		<h1>
-			leire.
-			<span>I craft digital experiences</span>
-		</h1>
-	</header>
+	<Header />
 	<main>
 		<section>
-			<p>
-				<span>Full-stack developer</span> with 2.5+ years of experience currently working at
-				<Link
-					href="https://www.zorraquino.com/"
-					title="Visit Zorraquino's website"
-					isExternalLink
-				>
-					<span>Zorraquino</span>
-				</Link>,
-				an award-winning design consultancy. Passionate about user-focused interface development and strategy-driven creative processes.
-			</p>
-			<p>
-				Versatile and detail-oriented self-taught programmer with prior experience
-				in the architecture, research and design sectors. UX/UI and Design Systems
-				enthusiast motivated to work on a team focused on good practices,
-				continuous learning, feedback-driven culture and transparency.
-			</p>
-			<div class="socials-container">
-				<div>
-					<p>Find me on:</p>
-					<Socials />
-				</div>
-				<Image src={myPhoto} alt="My photo" />
-			</div>
+			<AboutMe />
+			<Socials />
 		</section>
 	</main>
 	<footer>
@@ -46,63 +18,7 @@ import myPhoto from '@assets/images/leire.jpg'
 	</footer>
 </Layout>
 
-<style lang="scss" scoped>
-	body.app {
-		padding: 2rem 1rem;
-		font-family: $font-body;
-		font-size: 1.2rem;
-		background-color: $color-light;
-
-		@include tablet {
-			max-width: 600px;
-			margin: 0 auto;
-		}
-	}
-
-	h1 {
-		margin-top: 0;
-		font-family: $font-title;
-		font-size: 3.5rem;
-
-		& span {
-			display: block;
-			font-family: $font-subtitle;
-			font-size: toRem(24px);
-		}
-	}
-
-	span {
-		font-family: $font-body-bold;
-	}
-
-	a,
-	a:visited {
-		color: $color-black;
-	}
-
-	.socials-container {
-		display: flex;
-		gap: 1rem;
-		font-size: 1rem;
-
-		@include mobile {
-			font-size: 1.2rem;
-		}
-
-		div {
-			flex: 1 0 30%;
-
-			@include desktop {
-				flex: 1 0 40%;
-			}
-		}
-
-		img {
-			width: 100%;
-			height: auto;
-		}
-	}
-
+<style lang="scss">
 	footer p {
 		font-size: 1rem;
 

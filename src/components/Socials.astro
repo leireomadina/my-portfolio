@@ -1,50 +1,38 @@
 ---
-import ArrowIcon from '@assets/icons/arrow-diagonal-up-right.astro'
-import Link from './Link.astro'
+import SocialsNav from '@components/SocialsNav.astro'
+import { Image } from 'astro:assets'
+import myPhoto from '@assets/images/leire.jpg'
 ---
 
-<nav>
-	<ul>
-		<li>
-			<Link
-				href="https://www.linkedin.com/in/leire-orde%C3%B1ana/"
-				title="Take a look at my Linkedin profile"
-				isExternalLink
-			>
-				Linkedin
-			</Link>
-			<ArrowIcon />
-		</li>
-		<li>
-			<Link
-				href="https://github.com/leireomadina"
-				title="Take a look at my Github profile"
-				isExternalLink
-			>
-				Github
-			</Link>
-			<ArrowIcon />
-		</li>
-		<li>
-			<Link
-				href="https://www.behance.net/leireomadina"
-				title="Take a look at my Behance profile"
-				isExternalLink
-			>
-				Behance
-			</Link>
-			<ArrowIcon />
-		</li>
-	</ul>
-</nav>
+<article class="socials">
+	<div>
+		<p>Find me on:</p>
+		<SocialsNav />
+	</div>
+	<Image src={myPhoto} alt="My photo" />
+</article>
 
-<style lang="scss">
-	li {
+<style lang="scss" scoped>
+	.socials {
 		display: flex;
-		align-items: center;
+		gap: 1rem;
+		font-size: 1rem;
 
-		&:not(li) {
-			margin-bottom: 0.5rem;
+		@include mobile {
+			font-size: 1.2rem;
+		}
+
+		div {
+			flex: 1 0 30%;
+
+			@include desktop {
+				flex: 1 0 40%;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: auto;
 		}
 	}
 </style>

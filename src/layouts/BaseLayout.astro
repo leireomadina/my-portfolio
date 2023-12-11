@@ -21,7 +21,21 @@ import '../styles/globals.scss'
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 	</head>
-	<body class="app">
+	<body>
 		<slot />
 	</body>
 </html>
+
+<style lang="scss">
+	body {
+		padding: 2rem 1rem;
+		font-family: $font-body;
+		font-size: 1.2rem;
+		background-color: $color-light;
+
+		@include tablet {
+			max-width: toRem(600px);
+			margin: 0 auto;
+		}
+	}
+</style>
