@@ -10,30 +10,33 @@ import Link from './Link.astro'
 				href="https://www.linkedin.com/in/leire-orde%C3%B1ana/"
 				title="Take a look at my Linkedin profile"
 				isExternalLink
+				class="socials__link"
 			>
-				Linkedin
+				<p>Linkedin</p>
+				<ArrowIcon />
 			</Link>
-			<ArrowIcon />
 		</li>
 		<li>
 			<Link
 				href="https://github.com/leireomadina"
 				title="Take a look at my Github profile"
 				isExternalLink
+				class="socials__link"
 			>
-				Github
+				<p>Github</p>
+				<ArrowIcon />
 			</Link>
-			<ArrowIcon />
 		</li>
 		<li>
 			<Link
 				href="https://www.behance.net/leireomadina"
 				title="Take a look at my Behance profile"
 				isExternalLink
+				class="socials__link"
 			>
-				Behance
+				<p>Behance</p>
+				<ArrowIcon />
 			</Link>
-			<ArrowIcon />
 		</li>
 	</ul>
 </nav>
@@ -41,10 +44,17 @@ import Link from './Link.astro'
 <style lang="scss" scoped>
 	li {
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
+		padding: toRem(4px);
+		border-bottom: 1px solid $color-dark;
 
 		&:not(li) {
 			margin-bottom: 0.5rem;
+		}
+
+		p {
+			margin: 0;
 		}
 	}
 </style>
