@@ -5,4 +5,15 @@ module.exports = {
 	semi: false,
 	singleQuote: true,
 	endOfLine: 'auto',
+	plugins: [
+		'prettier-plugin-astro',
+	],
+	overrides: [
+    {
+      files: '**/*.astro',
+      options: {
+				parser: 'astro',
+			},
+    },
+  ],
 }
