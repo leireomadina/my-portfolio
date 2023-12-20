@@ -1,43 +1,26 @@
 ---
 import ArrowIcon from '@assets/icons/arrow-diagonal-up-right.astro'
 import Link from './Link.astro'
+import { links } from '@data/socials.json'
 ---
 
 <nav>
 	<ul>
-		<li>
-			<Link
-				href="https://www.linkedin.com/in/leire-orde%C3%B1ana/"
-				title="Take a look at my Linkedin profile"
-				isExternalLink
-				class="socials__link"
-			>
-				<p>Linkedin</p>
-				<ArrowIcon />
-			</Link>
-		</li>
-		<li>
-			<Link
-				href="https://github.com/leireomadina"
-				title="Take a look at my Github profile"
-				isExternalLink
-				class="socials__link"
-			>
-				<p>Github</p>
-				<ArrowIcon />
-			</Link>
-		</li>
-		<li>
-			<Link
-				href="https://www.behance.net/leireomadina"
-				title="Take a look at my Behance profile"
-				isExternalLink
-				class="socials__link"
-			>
-				<p>Behance</p>
-				<ArrowIcon />
-			</Link>
-		</li>
+		{
+			links.map(({ text, href, title }) => (
+				<li>
+					<Link
+						href={href}
+						title={title}
+						isExternalLink
+						class="socials__link"
+					>
+						{text}
+						<ArrowIcon />
+					</Link>
+				</li>
+			))
+		}
 	</ul>
 </nav>
 

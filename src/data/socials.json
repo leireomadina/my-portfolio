@@ -1,0 +1,22 @@
+{
+	"links": [
+		{
+			"id": 0,
+			"text": "LinkedIn",
+			"href": "https://www.linkedin.com/in/leire-orde%C3%B1ana/",
+			"title": "Take a look at my Linkedin profile"
+		},
+		{
+			"id": 1,
+			"text": "Github",
+			"href": "https://github.com/leireomadina",
+			"title": "Take a look at my Github profile"
+		},
+		{
+			"id": 2,
+			"text": "Behance",
+			"href": "https://www.behance.net/leireomadina",
+			"title": "Take a look at my Behance projects"
+		}
+	]
+}
