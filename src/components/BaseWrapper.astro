@@ -1,0 +1,21 @@
+---
+interface Props {
+	class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<div class:list={['wrapper', className]}>
+	<slot />
+</div>
+
+<style lang="scss">
+	.wrapper {
+		max-width: 1280px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+</style>
