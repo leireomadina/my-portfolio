@@ -1,0 +1,100 @@
+{
+	"projects": [
+		{
+			"id": 1,
+			"title": "kutxabank - first housing.",
+			"links": [
+				{
+					"title": "Visit the page",
+					"href": "https://clientes.kutxabank.es/es/hipotecas/primera-vivienda/",
+					"isExternalLink": true,
+					"icon": "arrow"
+				}
+			],
+			"tags": [
+				{
+					"id": 1,
+					"text": "PHP"
+				},
+				{
+					"id": 2,
+					"text": "Smarty"
+				},
+				{
+					"id": 3,
+					"text": "jQuery"
+				},
+				{
+					"id": 4,
+					"text": "CSS"
+				},
+				{
+					"id": 5,
+					"text": "CMS"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"title": "my portfolio.",
+			"links": [
+				{
+					"title": "Take a look at my code",
+					"href": "#",
+					"icon": "github"
+				}
+			],
+			"tags": [
+				{
+					"id": 1,
+					"text": "Astro"
+				},
+				{
+					"id": 2,
+					"text": "TypeScript"
+				},
+				{
+					"id": 3,
+					"text": "SASS"
+				},
+				{
+					"id": 4,
+					"text": "UI Design"
+				},
+				{
+					"id": 5,
+					"text": "Figma"
+				}
+			]
+		},
+		{
+			"id": 3,
+			"title": "figma store clone",
+			"links": [
+				{
+					"title": "Take a look at my code",
+					"href": "https://github.com/leireomadina/figma-store-clone",
+					"icon": "github"
+				}
+			],
+			"tags": [
+				{
+					"id": 1,
+					"text": "Vue.js"
+				},
+				{
+					"id": 2,
+					"text": "SASS"
+				},
+				{
+					"id": 3,
+					"text": "Vitest"
+				},
+				{
+					"id": 4,
+					"text": "Cypress"
+				}
+			]
+		}
+	]
+}
