@@ -7,6 +7,7 @@ import AboutMe from '@components/AboutMe.astro'
 import Socials from '@components/Socials.astro'
 import Projects from '@components/Projects.astro'
 import OtherProjects from '@components/OtherProjects.astro'
+import Footer from '@components/Footer.astro'
 ---
 
 <Layout>
@@ -21,21 +22,5 @@ import OtherProjects from '@components/OtherProjects.astro'
 		<Projects />
 		<OtherProjects />
 	</main>
-	<footer>
-		<p>🤘 Getxo, Basque country</p>
-	</footer>
+	<Footer />
 </Layout>
-
-<style lang="scss">
-	footer {
-		padding: 2rem 1rem;
-
-		p {
-		font-size: 1rem;
-
-			@include mobile {
-				font-size: 1.2rem;
-			}
-		}
-	}
-</style>
