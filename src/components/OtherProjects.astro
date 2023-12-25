@@ -1,0 +1,38 @@
+---
+import Section from '@components/BaseSection.astro'
+import Wrapper from '@components/BaseWrapper.astro'
+import Card from '@components/Card.astro'
+import { projects } from '@data/otherProjects.json'
+---
+
+<Section>
+	<Wrapper>
+		<h2>Other projects</h2>
+		<ul>
+			{
+				projects.map( ({title,tags,links}) => (
+					<li>
+						<Card
+							title={title}
+							tags={tags}
+							links={links}
+						></Card>
+					</li>
+				))
+			}
+		</ul>
+	</Wrapper>
+</Section>
+
+<style lang="scss">
+	h2 {
+		margin-top: 0;
+		margin-bottom: 2rem;
+		font-family: 'Playfair Display Bold';
+		font-size: 1.5rem;
+	}
+
+	li:not(:last-of-type) {
+		margin-bottom: 1rem;
+	}
+</style>
