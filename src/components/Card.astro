@@ -1,0 +1,98 @@
+---
+interface Props {
+	title: string
+	text?: string
+	tags: Array<{ id: number; text: string }>
+	links: Array<{
+		href: string
+		title: string
+		isExternalLink?: boolean
+		icon?: string
+	}>
+}
+
+import Link from './Link.astro'
+import Tag from './Tag.astro'
+import ArrowIcon from '@assets/icons/arrow-diagonal-up-right.astro'
+import GithubIcon from '@assets/icons/github.astro'
+
+const { title, text, tags, links } = Astro.props
+---
+
+<article class="card">
+	<div class="card__links-container">
+		<ul class="card__list">
+			{
+				links.map((link) => (
+					<li>
+						<Link
+							href={link.href}
+							title={link.title}
+							class="card__link"
+							isExternalLink
+						>
+							{link.icon === 'github' ? <GithubIcon /> : <ArrowIcon />}
+						</Link>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+	<div class="card__inner">
+		<h3 class="card__title">{title}</h3>
+		{text && <p class="card__text">{text}</p>}
+		<ul class="card__list">
+			{
+				tags.map((tag) => (
+					<li>
+						<Tag text={tag.text} />
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</article>
+
+<style lang="scss">
+	.card {
+		position: relative;
+		padding: 1rem;
+		background-color: $color-light;
+		border: 1px solid $color-dark;
+		border-radius: 16px;
+
+		&__inner {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		svg {
+			width: 32px;
+			width: 32px;
+		}
+
+		&__links-container {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+		}
+
+		&__title,
+		&__text {
+			margin: 0;
+		}
+
+		&__title {
+			font-family: $font-title;
+			font-size: 1.5rem;
+		}
+
+		&__list {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 8px;
+		}
+	}
+</style>
