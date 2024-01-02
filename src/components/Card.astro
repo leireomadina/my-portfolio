@@ -20,26 +20,27 @@ const { title, text, tags, links } = Astro.props
 ---
 
 <article class="card">
-	<div class="card__links-container">
-		<ul class="card__list">
-			{
-				links.map((link) => (
-					<li>
-						<Link
-							href={link.href}
-							title={link.title}
-							class="card__link"
-							isExternalLink
-						>
-							{link.icon === 'github' ? <GithubIcon /> : <ArrowIcon />}
-						</Link>
-					</li>
-				))
-			}
-		</ul>
-	</div>
 	<div class="card__inner">
-		<h3 class="card__title">{title}</h3>
+		<div class="card__top-container">
+			<h3 class="card__title">{title}</h3>
+			<ul class="card__list">
+				{
+					links.map((link) => (
+						<li>
+							<Link
+								href={link.href}
+								title={link.title}
+								class="card__link"
+								isExternalLink
+							>
+								{link.icon === 'github' ? <GithubIcon /> : <ArrowIcon />}
+							</Link>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
 		{text && <p class="card__text">{text}</p>}
 		<ul class="card__list">
 			{
@@ -67,15 +68,16 @@ const { title, text, tags, links } = Astro.props
 			gap: 1rem;
 		}
 
+		&__top-container {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: 1rem;
+		}
+
 		svg {
 			width: 32px;
 			width: 32px;
-		}
-
-		&__links-container {
-			position: absolute;
-			top: 1rem;
-			right: 1rem;
 		}
 
 		&__title,
@@ -84,6 +86,8 @@ const { title, text, tags, links } = Astro.props
 		}
 
 		&__title {
+			min-width: 0;
+			overflow-wrap: break-word;
 			font-family: $font-title;
 			font-size: 1.5rem;
 		}
