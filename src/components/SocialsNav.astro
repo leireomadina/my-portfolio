@@ -7,12 +7,12 @@ import { links } from '@data/socials.json'
 <nav>
 	<ul>
 		{
-			links.map(({ text, href, title }) => (
+			links.map(({ text, href, title, isExternalLink }) => (
 				<li>
 					<Link
 						href={href}
 						title={title}
-						isExternalLink
+						isExternalLink={isExternalLink}
 						class="socials__link"
 					>
 						{text}
