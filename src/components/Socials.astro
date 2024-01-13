@@ -8,7 +8,11 @@ import myPhoto from '@assets/images/leire.jpg'
 	<div class="socials__nav-container">
 		<SocialsNav />
 	</div>
-	<Image src={myPhoto} alt="Me with a graffiti wall in the background" class="socials__image"/>
+	<Image
+		src={myPhoto}
+		alt="Me with a graffiti wall in the background"
+		class="socials__image"
+	/>
 </article>
 
 <style lang="scss">
@@ -21,7 +25,6 @@ import myPhoto from '@assets/images/leire.jpg'
 		}
 
 		&__nav-container {
-			
 			@include tablet {
 				flex: 1 0 calc(100% - toRem(400px) - 1rem);
 			}
@@ -32,9 +35,30 @@ import myPhoto from '@assets/images/leire.jpg'
 			height: auto;
 			margin-top: 1.5rem;
 
+			@supports (animation-timeline: view()) {
+				& {
+					scale: 0.8;
+					opacity: 0;
+					animation: fade-in ease-out forwards;
+					animation-timeline: view();
+					animation-range: 0 300px;
+				}
+			}
+
 			@include tablet {
 				max-width: toRem(320px);
 			}
+		}
+	}
+
+	@keyframes fade-in {
+		50% {
+			scale: 0.9;
+			opacity: 0.8;
+		}
+		100% {
+			scale: 1;
+			opacity: 1;
 		}
 	}
 </style>
