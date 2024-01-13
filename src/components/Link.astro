@@ -31,5 +31,18 @@ const { href, title, isExternalLink, class: className } = Astro.props
 		justify-content: space-between;
 		align-items: center;
 		text-decoration: none;
+
+		&[href="#projects"] {
+			:global(svg) {
+				transform: rotate(180deg);
+			}
+		}
+
+	}
+
+	.card__link {
+		display:inline-block;
+		vertical-align:top;
+		line-height:0;
 	}
 </style>

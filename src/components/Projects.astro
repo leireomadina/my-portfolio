@@ -5,14 +5,14 @@ import Card from '@components/Card.astro'
 import { projects } from '@data/projects.json'
 ---
 
-<Section>
+<Section id="projects">
 	<Wrapper>
-		<h2>Selected projects</h2>
 		<ul>
 			{
-				projects.map( ({title,text,tags,links}) => (
+				projects.map( ({id,title,text,tags,links}) => (
 					<li>
 						<Card
+							id={id}
 							title={title}
 							text={text}
 							tags={tags}
@@ -26,14 +26,7 @@ import { projects } from '@data/projects.json'
 </Section>
 
 <style lang="scss">
-	h2 {
-		margin-top: 0;
-		margin-bottom: 2rem;
-		font-family: 'Playfair Display Bold';
-		font-size: 1.5rem;
-	}
-
-	li:not(:last-of-type) {
-		margin-bottom: 1rem;
+	ul :first-child {
+		border-top: 1px solid $color-dark;
 	}
 </style>

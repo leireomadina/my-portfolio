@@ -1,5 +1,6 @@
 ---
 interface Props {
+	id: number
 	title: string
 	text?: string
 	tags: Array<{ id: number; text: string }>
@@ -16,11 +17,12 @@ import Tag from './Tag.astro'
 import ArrowIcon from '@assets/icons/arrow-diagonal-up-right.astro'
 import GithubIcon from '@assets/icons/github.astro'
 
-const { title, text, tags, links } = Astro.props
+const { id, title, text, tags, links } = Astro.props
 ---
 
 <article class="card">
 	<div class="card__inner">
+		<p class="card__number">0{id}</p>
 		<div class="card__top-container">
 			<h3 class="card__title">{title}</h3>
 			<ul class="card__list">
@@ -56,11 +58,9 @@ const { title, text, tags, links } = Astro.props
 
 <style lang="scss">
 	.card {
-		position: relative;
-		padding: 1rem;
+		padding: 1.5rem 1rem;
 		background-color: $color-light;
-		border: 1px solid $color-dark;
-		border-radius: 16px;
+		border-bottom: 1px solid $color-dark;
 
 		&__inner {
 			display: flex;
@@ -68,10 +68,15 @@ const { title, text, tags, links } = Astro.props
 			gap: 1rem;
 		}
 
+		&__number {
+			margin: 0;
+			font-family: $font-subtitle;
+		}
+
 		&__top-container {
 			display: flex;
 			justify-content: space-between;
-			align-items: flex-start;
+			align-items: flex-end;
 			gap: 1rem;
 		}
 
@@ -89,14 +94,14 @@ const { title, text, tags, links } = Astro.props
 			min-width: 0;
 			overflow-wrap: break-word;
 			font-family: $font-title;
-			font-size: 1.5rem;
+			font-size: 2rem;
 		}
 
 		&__list {
 			display: flex;
 			align-items: center;
 			flex-wrap: wrap;
-			gap: 8px;
+			gap: 12px;
 		}
 	}
 </style>
