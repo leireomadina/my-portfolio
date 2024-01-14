@@ -1,0 +1,32 @@
+@use 'variables';
+
+html {
+	background-color: #F2F2F2;
+	color: #292829;
+
+	a,
+	a:visited {
+		color: #292829;
+	}
+}
+
+html.dark {
+  background-color: #292829;
+	color: #F2F2F2;
+
+	a,
+	a:visited {
+		color: #F2F2F2;
+	}
+
+	.socials svg,
+	.socials svg path,
+	.projects svg,
+	.projects svg path {
+		stroke: #F2F2F2;
+	}
+
+	.socials li {
+		border-bottom: 1px solid #F2F2F2;
+	}
+}
