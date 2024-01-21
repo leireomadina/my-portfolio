@@ -16,17 +16,30 @@ html.dark {
 
 	a,
 	a:visited {
-		color: #F2F2F2;
+		color: #87CC87;
+	}
+
+	.intro .wrapper > p {
+		a span:last-of-type {
+			color: #87CC87;
+		}
+		span {
+			color: #FEC8C8;
+		}
 	}
 
 	.socials svg,
 	.socials svg path,
 	.projects svg,
 	.projects svg path {
-		stroke: #F2F2F2;
+		stroke: #87CC87;
 	}
 
 	.socials li {
 		border-bottom: 1px solid #F2F2F2;
+	}
+
+	.projects .card__title {
+		color: #FEC8C8;
 	}
 }
