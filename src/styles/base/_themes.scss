@@ -3,6 +3,7 @@
 html {
 	background-color: #F2F2F2;
 	color: #292829;
+	transition: 0.25s ease-out all;
 
 	a,
 	a:visited {
@@ -13,6 +14,7 @@ html {
 html.dark {
   background-color: #292829;
 	color: #F2F2F2;
+	transition: 0.25s ease-out all;
 
 	a,
 	a:visited {
@@ -35,7 +37,12 @@ html.dark {
 		stroke: #87CC87;
 	}
 
-	.socials li {
+	.projects ul:first-child {
+		border-top: 1px solid #F2F2F2;
+	}
+
+	.socials li,
+	.card {
 		border-bottom: 1px solid #F2F2F2;
 	}
 
