@@ -15,7 +15,11 @@ const { text } = Astro.props
 
 		&__text {
 			margin: 0;
-			font-size: toRem(12px);
+			font-size: toRem(14px);
+
+			@include tablet {
+				font-size: 1rem;
+			}
 		}
 	}
 </style>
