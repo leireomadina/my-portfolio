@@ -14,18 +14,34 @@ import ThemeToggler from './ThemeToggler.astro'
 	header {
 		position: relative;
 		padding: 2rem 1rem;
-		
+
 		h1 {
 			margin: 0;
 			font-family: $font-title;
 			font-size: toRem(56px);
 			letter-spacing: 2px;
-	
+
+			@include tablet {
+				font-size: toRem(64px);
+			}
+
+			@include desktop {
+				font-size: toRem(80px);
+			}
+
 			& span {
 				display: block;
 				font-family: $font-subtitle;
 				font-size: toRem(24px);
 				letter-spacing: initial;
+
+				@include tablet {
+					font-size: toRem(28px);
+				}
+
+				@include desktop {
+					font-size: toRem(32px);
+				}
 			}
 		}
 	}
