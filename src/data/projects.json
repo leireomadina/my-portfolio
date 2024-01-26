@@ -88,6 +88,12 @@
 					"href": "https://github.com/leireomadina/my-portfolio",
 					"isExternalLink": true,
 					"icon": "github"
+				},
+				{
+					"title": "Visit the page",
+					"href": "https://leireomadina.vercel.app/",
+					"isExternalLink": true,
+					"icon": "arrow"
 				}
 			],
 			"tags": [
