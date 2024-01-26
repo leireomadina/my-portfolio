@@ -1,7 +1,7 @@
 # Leire's Portfolio
 
 Hi there! 👋
-Keep in mind that the current version is a MVP. This means that the project is actively a work in progress, with continuous improvements and refinements underway. Stay tuned for updates and new features.👀
+Keep in mind that the current version is a MVP. This means that the project is actively a work in progress, with continuous improvements and refinements underway. [Take a look](https://leireomadina.vercel.app/) and stay tuned for updates and new features.👀
 
 ## 🚀 Tech - Astro
 
