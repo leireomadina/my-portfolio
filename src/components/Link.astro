@@ -14,10 +14,8 @@ const { href, title, isExternalLink, class: className } = Astro.props
 	title={title}
 	class={className}
 	target={isExternalLink ? '_blank' : '_self'}
-	rel={isExternalLink ? 'noopener noreferrer' : null}
->
-	<slot />
-</a>
+	rel={isExternalLink ? 'noopener noreferrer' : null}>
+	<slot /></a>
 
 <style lang="scss">
 	a,
@@ -32,17 +30,16 @@ const { href, title, isExternalLink, class: className } = Astro.props
 		align-items: center;
 		text-decoration: none;
 
-		&[href="#projects"] {
+		&[href='#projects'] {
 			:global(svg) {
 				transform: rotate(180deg);
 			}
 		}
-
 	}
 
-	.card__link {
-		display:inline-block;
-		vertical-align:top;
-		line-height:0;
-	}
+	// .card__link {
+	// 	display: inline-block;
+	// 	vertical-align: top;
+	// 	line-height: 0;
+	// }
 </style>
