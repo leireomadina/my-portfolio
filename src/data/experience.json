@@ -1,0 +1,43 @@
+{
+	"experience": [
+		{
+			"id": 1,
+			"title": "Full-stack developer",
+			"company": "Zorraquino",
+			"url": "https://www.zorraquino.com/",
+			"date": {
+				"start": "2021",
+				"end": "current"
+			},
+			"projects": {
+				"1": "Taking part in the development of a hybrid mobile app focused on smart boilers, including new functionalities and improving usability. We use Vue.js with Ionic and SASS.",
+				"2": "Working hand in hand with design and marketing creating websites for a banking sector client, with focus on UX/UI and conversion. I contribute to the development of business logic and leads management. We use JavaScript, CSS, PHP, mySQL and a custom CMS.",
+				"3": "Part of the development of a new design system for a business group in the telecommunications sector, creating components and contributing to improve brand consistency and project scalability. Using JavaScript, Symfony (PHP & Twig), SASS and Webpack."
+			}
+		},
+		{
+			"id": 2,
+			"title": "Graphic and web designer",
+			"company": "Freelance",
+			"date": {
+				"start": "2018",
+				"end": "2020"
+			},
+			"projects": {
+				"1": "Collaborating with a freelance designer in branding, web and brand creation processes."
+			}
+		},
+		{
+			"id": 3,
+			"title": "Technical architect",
+			"company": "ATPO, Mendieta, EKIS",
+			"date": {
+				"start": "2014",
+				"end": "2019"
+			},
+			"projects": {
+				"1": "I took part in interior design, rehabilitation, restoration and heritage research projects."
+			}
+		}
+	]
+}
