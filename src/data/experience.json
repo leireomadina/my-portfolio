@@ -2,21 +2,91 @@
 	"experience": [
 		{
 			"id": 1,
+			"title": "Front-end developer",
+			"company": "Kaytek",
+			"url": "https://www.kaytek.es/",
+			"date": {
+				"start": "2024",
+				"end": "currently"
+			},
+			"projects": {
+				"1": "Design and development of new functionalities for the company's software platform focused on digitalising processes and organizations of the industrial sector. Using Vue, Vuetify, Cypress and Figma.",
+				"2": "Analyze and enhance the platform's UX/UI design by identifying areas for improvement, ensuring design consistency, and proposing solutions to optimize user experience and accessibility."
+			},
+			"tags": [
+				{
+					"id": 1,
+					"text": "Vue.js"
+				},
+				{
+					"id": 2,
+					"text": "Vuetify"
+				},
+				{
+					"id": 3,
+					"text": "JavaScript"
+				},
+				{
+					"id": 4,
+					"text": "CSS"
+				},
+				{
+					"id": 5,
+					"text": "Cypress"
+				},
+				{
+					"id": 6,
+					"text": "UI/UX Design"
+				},
+				{
+					"id": 7,
+					"text": "Figma"
+				}
+			]
+		},
+		{
+			"id": 2,
 			"title": "Full-stack developer",
 			"company": "Zorraquino",
 			"url": "https://www.zorraquino.com/",
 			"date": {
 				"start": "2021",
-				"end": "current"
+				"end": "2024"
 			},
 			"projects": {
-				"1": "Taking part in the development of a hybrid mobile app focused on smart boilers, including new functionalities and improving usability. We use Vue.js with Ionic and SASS.",
-				"2": "Working hand in hand with design and marketing creating websites for a banking sector client, with focus on UX/UI and conversion. I contribute to the development of business logic and leads management. We use JavaScript, CSS, PHP, mySQL and a custom CMS.",
-				"3": "Part of the development of a new design system for a business group in the telecommunications sector, creating components and contributing to improve brand consistency and project scalability. Using JavaScript, Symfony (PHP & Twig), SASS and Webpack."
-			}
+				"1": "Taking part in the development of a hybrid mobile app focused on smart boilers, including new functionalities and improving usability.",
+				"2": "Creating websites for a banking sector client, working hand in hand with design and marketing with focus on UX and conversion. I contribute to the development of business logic and leads management.",
+				"3": "Part of the development of a new design system for a business group in the telecommunications sector, creating components and contributing to improve brand consistency and project scalability."
+			},
+			"tags": [
+				{
+					"id": 1,
+					"text": "Vue.js"
+				},
+				{
+					"id": 2,
+					"text": "SASS"
+				},
+				{
+					"id": 3,
+					"text": "JavaScript"
+				},
+				{
+					"id": 4,
+					"text": "PHP"
+				},
+				{
+					"id": 5,
+					"text": "MySQL"
+				},
+				{
+					"id": 6,
+					"text": "CSS"
+				}
+			]
 		},
 		{
-			"id": 2,
+			"id": 3,
 			"title": "Graphic and web designer",
 			"company": "Freelance",
 			"date": {
@@ -25,10 +95,36 @@
 			},
 			"projects": {
 				"1": "Collaborating with a freelance designer in branding, web and brand creation processes."
-			}
+			},
+			"tags": [
+				{
+					"id": 1,
+					"text": "Wordpress"
+				},
+				{
+					"id": 2,
+					"text": "CSS"
+				},
+				{
+					"id": 3,
+					"text": "HTML"
+				},
+				{
+					"id": 4,
+					"text": "Photoshop"
+				},
+				{
+					"id": 5,
+					"text": "UX/UI Design"
+				},
+				{
+					"id": 6,
+					"text": "Graphic Design"
+				}
+			]
 		},
 		{
-			"id": 3,
+			"id": 4,
 			"title": "Technical architect",
 			"company": "ATPO, Mendieta, EKIS",
 			"date": {
@@ -37,7 +133,21 @@
 			},
 			"projects": {
 				"1": "I took part in interior design, rehabilitation, restoration and heritage research projects."
-			}
+			},
+			"tags": [
+				{
+					"id": 1,
+					"text": "Interior Design"
+				},
+				{
+					"id": 2,
+					"text": "SketchUp"
+				},
+				{
+					"id": 3,
+					"text": "Project planning"
+				}
+			]
 		}
 	]
 }
