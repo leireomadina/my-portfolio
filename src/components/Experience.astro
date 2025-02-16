@@ -1,0 +1,38 @@
+---
+import Section from '@components/BaseSection.astro'
+import Wrapper from '@components/BaseWrapper.astro'
+import Card from '@components/Card.astro'
+import BaseCard from '@components/BaseCard.astro'
+import ExperienceCard from '@components/ExperienceCard.astro'
+import { experience } from '@data/experience.json'
+---
+
+<Section id="experience" class="projects">
+	<Wrapper>
+		<ul class="minimal-list">
+			{
+				experience.map(({ id, title, company, url, projects, tags, date }) => (
+					<li>
+						<BaseCard>
+							<ExperienceCard
+								id={id}
+								title={title}
+								company={company}
+								url={url}
+								projects={projects}
+								tags={tags}
+								date={date}
+							/>
+						</BaseCard>
+					</li>
+				))
+			}
+		</ul>
+	</Wrapper>
+</Section>
+
+<style lang="scss">
+	ul :first-child {
+		border-top: 1px solid $color-dark;
+	}
+</style>
