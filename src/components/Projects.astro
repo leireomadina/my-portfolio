@@ -7,17 +7,11 @@ import { projects } from '@data/projects.json'
 
 <Section id="projects" class="projects">
 	<Wrapper>
-		<ul>
+		<ul class="minimal-list">
 			{
-				projects.map( ({id,title,text,tags,links}) => (
+				projects.map(({ id, title, text, tags, links }) => (
 					<li>
-						<Card
-							id={id}
-							title={title}
-							text={text}
-							tags={tags}
-							links={links}
-						></Card>
+						<Card id={id} title={title} text={text} tags={tags} links={links} />
 					</li>
 				))
 			}

@@ -1,10 +1,11 @@
 ---
 interface Props {
-	id: number
+	id?: number
 	title: string
+	subtitle?: string
 	text?: string
 	tags: Array<{ id: number; text: string }>
-	links: Array<{
+	links?: Array<{
 		href: string
 		title: string
 		isExternalLink?: boolean
@@ -17,34 +18,38 @@ import Tag from './Tag.astro'
 import ArrowIcon from '@assets/icons/arrow-diagonal-up-right.astro'
 import GithubIcon from '@assets/icons/github.astro'
 
-const { id, title, text, tags, links } = Astro.props
+const { id, title, subtitle, text, tags, links } = Astro.props
 ---
 
 <article class="card">
 	<div class="card__inner">
-		<p class="card__number">0{id}</p>
+		{id && <p class="card__number">0{id}</p>}
 		<div class="card__top-container">
-			<h3 class="card__title">{title}</h3>
-			<ul class="card__list">
+			<div>
+				<h3 class="card__title">{title}</h3>
+				{subtitle && <h4 class="card__subtitle">{subtitle}</h4>}
+			</div>
+			<ul class="card__list minimal-list">
 				{
-					links.map((link) => (
-						<li>
-							<Link
-								href={link.href}
-								title={link.title}
-								class="card__link"
-								isExternalLink
-							>
-								{link.icon === 'github' ? <GithubIcon /> : <ArrowIcon />}
-							</Link>
-						</li>
-					))
+					links &&
+						links.map((link) => (
+							<li>
+								<Link
+									href={link.href}
+									title={link.title}
+									class="card__link"
+									isExternalLink
+								>
+									{link.icon === 'github' ? <GithubIcon /> : <ArrowIcon />}
+								</Link>
+							</li>
+						))
 				}
 			</ul>
 		</div>
 
 		{text && <p class="card__text">{text}</p>}
-		<ul class="card__list">
+		<ul class="card__list minimal-list">
 			{
 				tags.map((tag) => (
 					<li>
@@ -58,7 +63,7 @@ const { id, title, text, tags, links } = Astro.props
 
 <style lang="scss">
 	.card {
-		padding: 1.5rem 1rem;
+		padding: 1.5rem 1rem; 2rem 1rem;
 		border-bottom: 1px solid $color-dark;
 
 		&__inner {
@@ -81,12 +86,12 @@ const { id, title, text, tags, links } = Astro.props
 
 		svg {
 			width: 32px;
-			width: 32px;
 		}
 
 		&__title,
 		&__text {
 			margin: 0;
+			font-weight: 400;
 		}
 
 		&__title {
@@ -94,6 +99,12 @@ const { id, title, text, tags, links } = Astro.props
 			overflow-wrap: break-word;
 			font-family: $font-title;
 			font-size: 2rem;
+		}
+
+		&__subtitle {
+			margin: 0.4rem 0;
+			font-size: 1.3rem;
+			font-weight: 400;
 		}
 
 		&__list {

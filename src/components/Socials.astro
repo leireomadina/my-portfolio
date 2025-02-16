@@ -19,12 +19,6 @@ import myPhoto from '@assets/images/leire.jpg'
 	.socials {
 		margin-top: 1.5rem;
 
-		@include desktop {
-			display: flex;
-			align-items: center;
-			gap: 1.5rem;
-		}
-
 		&__nav-container {
 			@include tablet {
 				flex: 1 0 calc(100% - 22rem - 1.5rem);
@@ -44,10 +38,6 @@ import myPhoto from '@assets/images/leire.jpg'
 					animation-timeline: view();
 					animation-range: 0 300px;
 				}
-			}
-
-			@include desktop {
-				max-width: 22rem;
 			}
 		}
 	}
