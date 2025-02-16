@@ -9,10 +9,16 @@
 				"start": "2024",
 				"end": "currently"
 			},
-			"projects": {
-				"1": "Design and development of new functionalities for the company's software platform focused on digitalising processes and organizations of the industrial sector. Using Vue, Vuetify, Cypress and Figma.",
-				"2": "Analyze and enhance the platform's UX/UI design by identifying areas for improvement, ensuring design consistency, and proposing solutions to optimize user experience and accessibility."
-			},
+			"projects": [
+				{
+					"id": 1,
+					"text": "Design and development of new functionalities for the company's software platform focused on digitalising processes and organizations of the industrial sector."
+				},
+				{
+					"id": 2,
+					"text": "Analyze and enhance the platform's UX/UI design by identifying areas for improvement, ensuring design consistency, and proposing solutions to optimize user experience and accessibility."
+				}
+			],
 			"tags": [
 				{
 					"id": 1,
@@ -53,11 +59,20 @@
 				"start": "2021",
 				"end": "2024"
 			},
-			"projects": {
-				"1": "Taking part in the development of a hybrid mobile app focused on smart boilers, including new functionalities and improving usability.",
-				"2": "Creating websites for a banking sector client, working hand in hand with design and marketing with focus on UX and conversion. I contribute to the development of business logic and leads management.",
-				"3": "Part of the development of a new design system for a business group in the telecommunications sector, creating components and contributing to improve brand consistency and project scalability."
-			},
+			"projects": [
+				{
+					"id": 1,
+					"text": "Hybrid mobile app development focused on smart boilers, including new functionalities and improving usability."
+				},
+				{
+					"id": 2,
+					"text": "Websites development, business logic and leads management for a banking sector client, working hand in hand with design and marketing with focus on UX and conversion."
+				},
+				{
+					"id": 3,
+					"text": "New design system development for a telecommunications business group, creating components and contributing to improve brand consistency and project scalability."
+				}
+			],
 			"tags": [
 				{
 					"id": 1,
@@ -93,9 +108,12 @@
 				"start": "2018",
 				"end": "2020"
 			},
-			"projects": {
-				"1": "Collaborating with a freelance designer in branding, web and brand creation processes."
-			},
+			"projects": [
+				{
+					"id": 1,
+					"text": "Collaborating with a freelance designer in branding, web and brand creation processes."
+				}
+			],
 			"tags": [
 				{
 					"id": 1,
@@ -131,9 +149,12 @@
 				"start": "2014",
 				"end": "2019"
 			},
-			"projects": {
-				"1": "I took part in interior design, rehabilitation, restoration and heritage research projects."
-			},
+			"projects": [
+				{
+					"id": 1,
+					"text": "I took part in interior design, rehabilitation, restoration and heritage research projects."
+				}
+			],
 			"tags": [
 				{
 					"id": 1,
