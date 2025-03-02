@@ -1,7 +1,7 @@
 @use 'variables';
 
 html {
-	background-color: #F2F2F2;
+	background-color: #f2f2f2;
 	color: #292829;
 	transition: 0.25s ease-out all;
 
@@ -12,21 +12,21 @@ html {
 }
 
 html.dark {
-  background-color: #292829;
-	color: #F2F2F2;
+	background-color: #292829;
+	color: #f2f2f2;
 	transition: 0.25s ease-out all;
 
 	a,
 	a:visited {
-		color: #9BDD9B;
+		color: #9bdd9b;
 	}
 
 	.intro .wrapper > p {
 		a span:last-of-type {
-			color: #9BDD9B;
+			color: #9bdd9b;
 		}
 		span {
-			color: #FEC8C8;
+			color: #fec8c8;
 		}
 	}
 
@@ -34,19 +34,22 @@ html.dark {
 	.socials svg path,
 	.projects svg,
 	.projects svg path {
-		stroke: #9BDD9B;
+		stroke: #9bdd9b;
 	}
 
-	.projects ul:first-child {
-		border-top: 1px solid #F2F2F2;
+	.experience ul:first-child {
+		border-top: 1px solid #ccc;
 	}
 
-	.socials li,
+	.socials li {
+		border-bottom: 1px solid #9bdd9b;
+	}
+
 	.card {
-		border-bottom: 1px solid #F2F2F2;
+		border-bottom: 1px solid #ccc;
 	}
 
-	.projects .card__title {
-		color: #FEC8C8;
+	.experience .card__title {
+		color: #fec8c8;
 	}
 }
