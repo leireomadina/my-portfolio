@@ -1,40 +1,114 @@
 /**
  * Typography
  * =================================
- *  - Playfair Display Bold
- *  - Playfair Display SemiBold Italic
- *  - Inter SemiBold
+ *  - Inter Light
+ *  - Inter Light Italic
  *  - Inter Regular
+ *  - Inter SemiBold
+ *  - PP Editorial New Ultralight
+ *  - PP Editorial New Ultralight Italic
+ *  - PP Editorial New Regular
+ *  - PP Editorial New Italic
+ *  - PP Editorial New Ultrabold
+ *  - PP Editorial New Ultrabold Italic
  */
 
 @font-face {
-	font-family: 'Playfair Display Bold';
-	src: local('Playfair Display Bold'), local('PlayfairDisplay-Bold'),
-		url('/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
-	font-weight: 700;
+	font-family: 'Inter Light';
+	src:
+		local('Inter Light'),
+		local('Inter-Light'),
+		url('/fonts/Inter-Light.ttf') format('truetype');
+	font-weight: 300;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Playfair Display SemiBold Italic';
-	src: local('Playfair Display SemiBold Italic'), local('PlayfairDisplay-SemiBold-Italic'),
-		url('/fonts/PlayfairDisplay-SemiBoldItalic.ttf') format('truetype');
-	font-weight: 600;
+	font-family: 'Inter Light Italic';
+	src:
+		local('Inter Light Italic'),
+		local('Inter-Light-Italic'),
+		url('/fonts/Inter-LightItalic.ttf') format('truetype');
+	font-weight: 300;
 	font-style: italic;
 }
 
 @font-face {
+	font-family: 'Inter Regular';
+	src:
+		local('Inter Regular'),
+		local('Inter-Regular'),
+		url('/fonts/Inter-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
 	font-family: 'Inter SemiBold';
-	src: local('Inter SemiBold'), local('Inter-SemiBold'),
+	src:
+		local('Inter SemiBold'),
+		local('Inter-SemiBold'),
 		url('/fonts/Inter-SemiBold.ttf') format('truetype');
 	font-weight: 600;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Inter Regular';
-	src: local('Inter Regular'), local('Inter-Regular'),
-		url('/fonts/Inter-Regular.ttf') format('truetype');
+	font-family: 'PP Editorial New Ultralight';
+	src:
+		local('PP Editorial New Ultralight'),
+		local('PPEditorialNew-Ultralight'),
+		url('/fonts/PPEditorialNew-Ultralight.otf') format('opentype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'PP Editorial New Ultralight Italic';
+	src:
+		local('PP Editorial New Ultralight Italic'),
+		local('PPEditorialNew-Ultralight Italic'),
+		url('/fonts/PPEditorialNew-UltralightItalic.otf') format('opentype');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'PP Editorial New Regular';
+	src:
+		local('PP Editorial New Regular'),
+		local('PPEditorialNew-Regular'),
+		url('/fonts/PPEditorialNew-Regular.otf') format('opentype');
 	font-weight: 400;
 	font-style: normal;
+}
+
+@font-face {
+	font-family: 'PP Editorial New Italic';
+	src:
+		local('PP Editorial New Italic'),
+		local('PPEditorialNew-Italic'),
+		url('/fonts/PPEditorialNew-Italic.otf') format('opentype');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'PP Editorial New Ultrabold';
+	src:
+		local('PP Editorial New Ultrabold'),
+		local('PPEditorialNew-Ultrabold'),
+		url('/fonts/PPEditorialNew-Ultrabold.otf') format('opentype');
+	font-weight: 800;
+	font-style: regular;
+}
+
+@font-face {
+	font-family: 'PP Editorial New Ultrabold Italic';
+	src:
+		local('PP Editorial New Ultrabold Italic'),
+		local('PPEditorialNew-Ultrabold Italic'),
+		url('/fonts/PPEditorialNew-UltraboldItalic.otf') format('opentype');
+	font-weight: 800;
+	font-style: italic;
 }
