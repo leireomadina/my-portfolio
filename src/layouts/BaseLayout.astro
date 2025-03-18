@@ -5,11 +5,11 @@ import '../styles/globals.scss'
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Leire Ordeñana Madina | Full-stack developer</title>
+		<title>Leire Ordeñana Madina | Front-end developer</title>
 		<meta charset="utf-8" />
 		<meta
 			name="description"
-			content="Full-stack developer with more than two years of experience specialized in UI development with JavaScript, CSS, SASS, and HTML."
+			content="Front-end developer with more than four years of experience specialized in UI development and design with JavaScript, Vue, CSS, SASS, and HTML."
 		/>
 		<meta name="author" content="Leire Ordeñana Madina" />
 		<meta
@@ -32,17 +32,17 @@ import '../styles/globals.scss'
 	}
 	body {
 		font-family: $font-body;
-		font-size: 1.2rem;
+		font-size: 1.5rem;
 
 		@include tablet {
-			max-width: toRem(700px);
 			margin: 0 auto;
-			font-size: 1.3rem;
+			padding: 1.5rem;
+			font-size: 2rem;
 		}
 
 		@include desktop {
-			max-width: toRem(800px);
-			font-size: 1.5rem;
+			padding: 3rem;
+			font-size: clamp(2rem, 4vw, 3rem);
 		}
 	}
 </style>

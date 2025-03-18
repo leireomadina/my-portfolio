@@ -22,7 +22,8 @@ const { href, title, isExternalLink, class: className } = Astro.props
 <style lang="scss">
 	a,
 	a:visited {
-		color: $color-dark;
+		font-family: $font-body-bold;
+		color: $color-green-dark;
 	}
 
 	.socials__link {
@@ -39,10 +40,4 @@ const { href, title, isExternalLink, class: className } = Astro.props
 			}
 		}
 	}
-
-	// .card__link {
-	// 	display: inline-block;
-	// 	vertical-align: top;
-	// 	line-height: 0;
-	// }
 </style>

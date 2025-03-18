@@ -12,13 +12,16 @@ const { text } = Astro.props
 
 <style lang="scss">
 	.tag {
-
 		&__text {
 			margin: 0;
-			font-size: toRem(14px);
+			font-size: 1rem;
 
 			@include tablet {
-				font-size: 1rem;
+				font-size: 1.2rem;
+			}
+
+			@include desktop {
+				font-size: 1.5rem;
 			}
 		}
 	}

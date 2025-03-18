@@ -30,7 +30,7 @@ import { links } from '@data/socials.json'
 		justify-content: space-between;
 		align-items: center;
 		padding: toRem(4px);
-		border-bottom: 1px solid $color-dark;
+		border-bottom: 2px solid $color-green-dark;
 
 		&:not(li) {
 			margin-bottom: 0.5rem;
@@ -38,6 +38,11 @@ import { links } from '@data/socials.json'
 
 		p {
 			margin: 0;
+		}
+
+		:global(svg.icon) {
+			width: 48px;
+			height: 48px;
 		}
 	}
 </style>
