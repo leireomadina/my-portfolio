@@ -3,14 +3,33 @@
 		@content;
 	}
 }
+
+@mixin big-mobile() {
+	@media (min-width: 500px) {
+		@content;
+	}
+}
+
 @mixin tablet() {
-	@media (min-width: 768px) {
+	@media (min-width: 680px) {
 		@content;
 	}
 }
 
 @mixin desktop() {
-	@media (min-width: 1280px) {
+	@media (min-width: 1180px) {
+		@content;
+	}
+}
+
+@mixin only-mobile() {
+	@media (max-width: 680px) {
+		@content;
+	}
+}
+
+@mixin only-small-mobile() {
+	@media (max-width: 480px) {
 		@content;
 	}
 }

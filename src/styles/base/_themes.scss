@@ -21,13 +21,13 @@ html.dark {
 		color: #9bdd9b;
 	}
 
-	.intro .wrapper > p {
-		a span:last-of-type {
-			color: #9bdd9b;
-		}
-		span {
-			color: #fec8c8;
-		}
+	.header .header__headline .header__headline--highlighted {
+		color: #fec8c8;
+	}
+
+	.intro .intro--highlighted,
+	.info .info__content {
+		color: #fec8c8;
 	}
 
 	.socials svg,
@@ -42,7 +42,7 @@ html.dark {
 	}
 
 	.socials li {
-		border-bottom: 1px solid #9bdd9b;
+		border-bottom: 2px solid #9bdd9b;
 	}
 
 	.card {

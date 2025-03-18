@@ -2,26 +2,33 @@
  * Variables
  * =================================
  * - Typography
+ *   - Titles
+ *   - Body
  * - Colors
- *    - Background
- *    - Neutral
+ *   - Brand
+ *   - Neutral
  */
 
 // TYPOGRAPHY
-$font-title: 'Playfair Display SemiBold Italic';
-$font-subtitle: 'Playfair Display Bold';
-$font-body: 'Inter Regular';
+// Titles
+$font-title: 'PP Editorial New Regular';
+$font-title-italic: 'PP Editorial New Italic';
+// Body
+$font-body: 'Inter Light';
+$font-body-italic: 'Inter Light Italic';
 $font-body-bold: 'Inter SemiBold';
+$font-body-regular: 'Inter Regular';
 
 // COLORS
-// Background
-$color-green: #87cc87;
+// Brand
+$color-green-light: #87cc87;
+$color-green-dark: #46ac6c;
 $color-pink-light: #fec8c8;
-$color-pink-dark: #da93b6;
+$color-pink-dark: #d46072;
 $color-light: #f2f2f2;
 $color-dark: #292829;
 // Neutral
-$color-black: #000;
+$color-black: #292829;
 $color-white: #fff;
 $color-grey: #878787;
 $color-light-grey: #bcbcbc;
