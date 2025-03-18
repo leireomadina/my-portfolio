@@ -1,29 +1,120 @@
 ---
 import Link from '@components/Link.astro'
 ---
+<div class="grid-container">
+	<p class="intro intro--role role">
+		<span class="intro--highlighted">Front-end developer</span> passionate about user-focused interface development
+		and strategy-driven creative processes.
+	</p>
+	<p class="intro intro--job job">
+		Currently working at
+		<Link
+			href="https://www.kaytek.es/"
+			title="Visit Kaytek's website"
+			isExternalLink
+		>
+			Kaytek</span>
+		</Link>, an innovative startup focused on smart factory solutions.
+	</p>
+</div>
+<div class="grid-container">
+	<div class="info info--experience">
+		<h2 class="info__title">
+			Years of experience
+		</h2>
+		<p class="info__content">
+			4+
+		</p>
+	</div>
+	<div class="info info--expertise">
+		<h2 class="info__title">
+			Specialized in
+		</h2>
+		<ul class="info__list">
+			<li class="info__content">Web development</li>
+			<li class="info__content">Software Engineering</li>
+			<li class="info__content">UX/UI design</li>
+		</ul>
+	</div>
+</div>
+<div class="grid-container">
+	<p class="intro intro--context">
+		Versatile and detail-oriented self-taught programmer with prior experience in
+		the architecture, research and design sectors.
+	</p>
+	<p class="intro intro--goal">
+		Motivated to work on a team focused on good practices, continuous learning,
+		feedback-driven culture and transparency.
+	</p>
+</div>
 
-<p>
-	<span>Front-end developer</span> with 4+ years of experience currently working
-	at
-	<Link
-		href="https://www.kaytek.es/"
-		title="Visit Kaytek's website"
-		isExternalLink
-	>
-		<span>Kaytek</span>
-	</Link>, an innovative startup focused on smart factory solutions. Passionate
-	about user-focused interface development and strategy-driven creative
-	processes.
-</p>
-<p>
-	Versatile and detail-oriented self-taught programmer with prior experience in
-	the architecture, research and design sectors. UX/UI and Design Systems
-	enthusiast with Backend knowledge motivated to work on a team focused on good
-	practices, continuous learning, feedback-driven culture and transparency.
-</p>
-
-<style lang="scss">
-	p span {
-		font-family: $font-body-bold;
+<style lang="scss" scoped>
+	
+	.grid-container {
+		@include desktop {
+			display: grid;
+			grid-template-columns: repeat(12, minmax(0, 1fr));
+			grid-auto-flow: dense;
+			margin-top: 3rem;
+		}
 	}
+
+	.intro {
+		&--role,
+		&--context {
+			grid-column: 1/7;
+		}
+
+		&--job,
+		&--goal {
+			grid-column: 8/13;
+		}
+
+		&--highlighted {
+			font-family: $font-body-bold;
+			color: $color-pink-dark;
+		}
+	}
+
+	.info {
+		&--experience {
+			grid-column: 1/4;
+		}
+
+		&--expertise {
+			grid-column: 5/12;
+		}
+
+		&__title {
+			margin-top: 2rem;
+			margin-bottom: 0;
+			font-size: 1.5rem;
+			font-family: $font-body;
+
+			@include tablet {
+				margin-top: 0;
+				font-size: 2rem;
+			}
+		}
+
+		&__list {
+			margin: 0;
+		}
+
+		&__content {
+			margin: 0;
+			font-family: $font-body-bold;
+			font-size: 8vw;
+			color: $color-pink-dark;
+
+			@include tablet {
+				font-size: 3.5rem;
+			}
+
+			@include desktop {
+				font-size: 5rem;
+			}
+		}
+	}
+
 </style>

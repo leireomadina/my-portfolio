@@ -2,46 +2,59 @@
 import ThemeToggler from './ThemeToggler.astro'
 ---
 
-<header>
+<header class="header">
 	<ThemeToggler />
-	<h1>
-		leire.
-		<span>I craft digital experiences</span>
+	<h1 class="header__title">
+		<span class="header__headline">
+			<span class="header__headline--block">Hi,</span> I'm <span class="header__headline--highlighted">Leire 👋🏼</span>
+		</span>
+		<span class="header__tagline">
+			<span class="header__tagline--regular">I craft</span>
+			digital experiences
+		</span>
 	</h1>
 </header>
 
 <style lang="scss">
-	header {
+	.header {
 		position: relative;
-		padding: 2rem 1rem;
+		padding: 6rem 1rem 1rem 1rem;
 
-		h1 {
+		&__title {
 			margin: 0;
-			font-family: $font-title;
-			font-size: toRem(56px);
+			font-family: $font-title-italic;
+			font-size: 11vw;
 			letter-spacing: 2px;
 
 			@include tablet {
-				font-size: toRem(64px);
+				font-size: 5rem;
 			}
 
 			@include desktop {
-				font-size: toRem(80px);
+				font-size: clamp(5rem, 5.5vw, 7rem);
+			}
+		}
+
+		&__headline {
+			display: block;
+
+			&--block {
+				@include only-small-mobile {
+					display: block;
+				}
 			}
 
-			& span {
-				display: block;
-				font-family: $font-subtitle;
-				font-size: toRem(24px);
-				letter-spacing: initial;
+			&--highlighted {
+				color: $color-pink-dark;
+			}
+		}
 
-				@include tablet {
-					font-size: toRem(28px);
-				}
+		&__tagline {
+			letter-spacing: 5px;
 
-				@include desktop {
-					font-size: toRem(32px);
-				}
+			&--regular {
+				font-family: $font-title;
+				letter-spacing: 2px;
 			}
 		}
 	}
