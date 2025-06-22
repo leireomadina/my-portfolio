@@ -11,7 +11,11 @@ describe('Base section component', () => {
             },
         })
 
-        expect(result).toContain('Section content')
+        document.body.innerHTML = result
+
+        const section = document.querySelector('section')
+        expect(section).not.toBeNull()
+        expect(section?.textContent).toContain('Section content')
     })
 
     it('should render correctly with all props', async () => {
@@ -23,7 +27,10 @@ describe('Base section component', () => {
 		    },
         })
 
-        expect(result).toContain('id="test-id"')
-        expect(result).toMatch(/class="[^"]*\btest-class\b[^"]*"/)
+        document.body.innerHTML = result
+        const section = document.querySelector('section')
+        expect(section).not.toBeNull()
+        expect(section?.getAttribute('id')).toBe('test-id')
+        expect(section?.classList.contains('test-class')).toBe(true)
     })
 })
