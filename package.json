@@ -14,17 +14,17 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
-    "@astrojs/vercel": "^8.2.11",
+    "@astrojs/vercel": "^9.0.4",
     "astro": "^5.17.1",
     "sass": "^1.97.3"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^8.54.0",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "eslint-plugin-astro": "^1.5.0",
-    "happy-dom": "^18.0.1",
+    "happy-dom": "^20.5.0",
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
-    "vitest": "^3.2.4"
+    "vitest": "^4.0.18"
   }
 }
