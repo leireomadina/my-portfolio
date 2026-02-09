@@ -9,8 +9,7 @@ import ThemeToggler from './ThemeToggler.astro'
 			<span class="header__headline--block">Hi,</span> I'm <span class="header__headline--highlighted">Leire 👋🏼</span>
 		</span>
 		<span class="header__tagline">
-			<span class="header__tagline--regular">I craft</span>
-			digital experiences
+			I <i class="header__tagline--italic">craft</i> digital experiences
 		</span>
 	</h1>
 </header>
@@ -18,13 +17,21 @@ import ThemeToggler from './ThemeToggler.astro'
 <style lang="scss">
 	.header {
 		position: relative;
-		padding: 6rem 1rem 1rem 1rem;
+		padding: 3rem 1rem 1rem 1rem;
+
+		@include tablet {
+			padding-top: 4rem;
+		}
+
+		@include desktop {
+			padding-top: 6rem;
+		}
 
 		&__title {
 			margin: 0;
-			font-family: $font-title-italic;
+			font-family: $font-title;
 			font-size: 11vw;
-			letter-spacing: 2px;
+			letter-spacing: 3px;
 
 			@include tablet {
 				font-size: 5rem;
@@ -50,11 +57,8 @@ import ThemeToggler from './ThemeToggler.astro'
 		}
 
 		&__tagline {
-			letter-spacing: 5px;
-
-			&--regular {
-				font-family: $font-title;
-				letter-spacing: 2px;
+			&--italic {
+				font-family: $font-title-italic;
 			}
 		}
 	}
