@@ -3,7 +3,7 @@ import Link from '@components/Link.astro'
 ---
 <div class="grid-container">
 	<p class="intro intro--role role">
-		<span class="intro--highlighted">Front-end developer</span> passionate about user-focused interface development
+		<span class="intro--highlighted">Front-end <span class="intro--italic">developer</span></span> and <span class="intro--highlighted intro--italic">designer</span> passionate about user-focused interface development
 		and strategy-driven creative processes.
 	</p>
 	<p class="intro intro--job job">
@@ -22,7 +22,7 @@ import Link from '@components/Link.astro'
 		<h2 class="info__title">
 			Years of experience
 		</h2>
-		<p class="info__content">
+		<p class="info__content info__content--year">
 			5+
 		</p>
 	</div>
@@ -31,9 +31,9 @@ import Link from '@components/Link.astro'
 			Specialized in
 		</h2>
 		<ul class="info__list">
-			<li class="info__content">Web development</li>
-			<li class="info__content">Software Engineering</li>
-			<li class="info__content">UX/UI design</li>
+			<li class="info__content">Web <span class="info__content--highlighted">development.</span></li>
+			<li class="info__content">Software <span class="info__content--highlighted">engineering.</span></li>
+			<li class="info__content">UX/UI <span class="info__content--highlighted">design.</span></li>
 		</ul>
 	</div>
 </div>
@@ -71,8 +71,12 @@ import Link from '@components/Link.astro'
 		}
 
 		&--highlighted {
-			font-family: $font-body-bold;
+			font-family: $font-title;
 			color: $color-pink-dark;
+		}
+
+		&--italic {
+			font-family: $font-title-italic;
 		}
 	}
 
@@ -80,6 +84,10 @@ import Link from '@components/Link.astro'
 		&--experience {
 			grid-column: 1/4;
 			margin-top: 3rem;
+
+			@include tablet {
+				margin-top: 0;
+			}
 		}
 
 		&--expertise {
@@ -92,7 +100,7 @@ import Link from '@components/Link.astro'
 			font-size: 1.5rem;
 			font-family: $font-body;
 
-			@include tablet {
+			@include desktop {
 				margin-top: 0;
 				font-size: 2rem;
 			}
@@ -104,9 +112,17 @@ import Link from '@components/Link.astro'
 
 		&__content {
 			margin: 0;
-			font-family: $font-body-bold;
+			font-family: $font-title;
 			font-size: 8vw;
 			color: $color-pink-dark;
+
+			&--highlighted {
+				font-family: $font-title-italic;
+			}
+
+			&--year {
+				font-family: $font-body;
+			}
 
 			@include tablet {
 				font-size: 3.5rem;
