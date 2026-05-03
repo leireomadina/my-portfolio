@@ -2,7 +2,7 @@
 	"experience": [
 		{
 			"id": 1,
-			"title": "Software Developer & Designer",
+			"title": "Software <i class='card__title--highlighted'>developer</i> & <i class='card__title--highlighted'>designer</i>",
 			"company": "Kaytek",
 			"url": "https://www.kaytek.es/",
 			"date": {
@@ -52,7 +52,7 @@
 		},
 		{
 			"id": 2,
-			"title": "Full-stack Developer",
+			"title": "Full-stack <i class='card__title--highlighted'>developer</i>",
 			"company": "Zorraquino",
 			"url": "https://www.zorraquino.com/",
 			"date": {
@@ -102,7 +102,7 @@
 		},
 		{
 			"id": 3,
-			"title": "Graphic and Web Designer",
+			"title": "Graphic & web <i class='card__title--highlighted'>designer</i>",
 			"company": "Freelance",
 			"date": {
 				"start": "2018",
@@ -143,7 +143,7 @@
 		},
 		{
 			"id": 4,
-			"title": "Technical Architect",
+			"title": "Technical <i class='card__title--highlighted'>architect</i>",
 			"company": "ATPO, Mendieta, EKIS",
 			"date": {
 				"start": "2014",

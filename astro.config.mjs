@@ -1,6 +1,10 @@
 import { defineConfig } from 'astro/config'
 import vercel from '@astrojs/vercel'
 import sitemap from '@astrojs/sitemap'
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,10 +14,11 @@ export default defineConfig({
 		css: {
 			preprocessorOptions: {
 				scss: {
+					api: 'modern-compiler',
 					additionalData: `
-						@use "./src/styles/base/_functions.scss" as *;
-						@use "./src/styles/base/_mixins.scss" as *;
-						@use "./src/styles/base/_variables.scss" as *;
+						@use "${path.resolve(__dirname, './src/styles/base/_functions.scss')}" as *;
+						@use "${path.resolve(__dirname, './src/styles/base/_mixins.scss')}" as *;
+						@use "${path.resolve(__dirname, './src/styles/base/_variables.scss')}" as *;
 					`,
 				},
 			},

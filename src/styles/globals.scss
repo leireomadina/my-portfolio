@@ -7,3 +7,8 @@
 @use 'base/themes';
 @use 'base/normalize';
 @use 'base/reset';
+
+// As this is a class defined in the json data, we need to define it globally to load the styles. It is used in the experience section.
+.card__title--highlighted {
+  font-family: $font-title-italic;
+}
