@@ -23,6 +23,9 @@ export default defineConfig({
 				},
 			},
 		},
+		build: {
+			cssMinify: 'esbuild',
+		},
 	},
 	adapter: vercel({
 		imageService: true,
