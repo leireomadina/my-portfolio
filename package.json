@@ -13,20 +13,20 @@
 		"format": "prettier --write \"**/*.{js,jsx,astro,ts,cjs,mjs}\""
 	},
 	"dependencies": {
-		"@astrojs/sitemap": "^3.7.2",
-		"@astrojs/vercel": "^10.0.6",
-		"astro": "^6.2.1",
-		"sass": "^1.99.0"
+		"@astrojs/sitemap": "^3.7.3",
+		"@astrojs/vercel": "^11.0.5",
+		"astro": "^7.2.2",
+		"sass": "^1.102.0"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.9",
-		"@typescript-eslint/parser": "^8.59.1",
-		"eslint": "^10.3.0",
-		"eslint-plugin-astro": "^1.7.0",
-		"happy-dom": "^20.9.0",
-		"prettier": "^3.8.3",
+		"@astrojs/check": "^0.9.10",
+		"@typescript-eslint/parser": "^8.67.0",
+		"eslint": "^10.8.1",
+		"eslint-plugin-astro": "^3.1.0",
+		"happy-dom": "^20.11.2",
+		"prettier": "^3.9.6",
 		"prettier-plugin-astro": "^0.14.1",
-		"typescript": "^6.0.3",
-		"vitest": "^4.1.5"
+		"typescript": "^7.0.2",
+		"vitest": "^4.1.10"
 	}
 }
