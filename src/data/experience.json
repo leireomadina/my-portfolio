@@ -2,7 +2,7 @@
 	"experience": [
 		{
 			"id": 1,
-			"title": "Software <i class='card__title--highlighted'>developer</i> & <i class='card__title--highlighted'>designer</i>",
+			"title": "Software <i class='card__title--highlighted'>developer</i> &amp; UX/UI <i class='card__title--highlighted'>designer</i>",
 			"company": "Kaytek",
 			"url": "https://www.kaytek.es/",
 			"date": {
@@ -61,16 +61,16 @@
 			},
 			"projects": [
 				{
-					"id": 1,
-					"text": "Hybrid mobile app development focused on smart boilers, including new functionalities and improving usability."
-				},
-				{
 					"id": 2,
 					"text": "Websites development, business logic and leads management for a banking sector client, working hand in hand with design and marketing with focus on UX and conversion."
 				},
 				{
 					"id": 3,
 					"text": "New design system development for a telecommunications business group, creating components and contributing to improve brand consistency and project scalability."
+				},
+				{
+					"id": 1,
+					"text": "Hybrid mobile app development focused on smart boilers, including new functionalities and improving usability."
 				}
 			],
 			"tags": [

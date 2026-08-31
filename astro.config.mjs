@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://leireomadina.github.io/my-portfolio',
+	site: 'https://leireomadina.vercel.app',
 	integrations: [sitemap()],
 	vite: {
 		css: {

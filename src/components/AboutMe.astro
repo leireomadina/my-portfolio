@@ -1,14 +1,17 @@
 ---
 import Link from '@components/Link.astro'
 ---
+
 <div class="grid-container">
 	<p class="intro intro--role role">
-		<span class="intro--highlighted">Front-end <span class="intro--italic">developer</span></span> and <span class="intro--highlighted intro--italic">designer</span> passionate about user-focused interface development
-		and strategy-driven creative processes.
+		<span class="intro--highlighted">
+			Front-end <span class="intro--italic">developer</span>
+		</span> and <span class="intro--highlighted">interface</span>
+		<span class="intro--highlighted intro--italic"> designer</span> passionate about
+		crafting user-focused experiences and driving strategy-led creative processes.
 	</p>
 	<p class="intro intro--job job">
-		Currently working at
-		<Link
+		Currently working at <Link
 			href="https://www.kaytek.es/"
 			title="Visit Kaytek's website"
 			isExternalLink
@@ -19,28 +22,28 @@ import Link from '@components/Link.astro'
 </div>
 <div class="grid-container">
 	<div class="info info--experience">
-		<h2 class="info__title">
-			Years of experience
-		</h2>
-		<p class="info__content info__content--year">
-			5+
-		</p>
+		<h2 class="info__title">Years of experience</h2>
+		<p class="info__content info__content--year">5+</p>
 	</div>
 	<div class="info info--expertise">
-		<h2 class="info__title">
-			Specialized in
-		</h2>
+		<h2 class="info__title">Specialized in</h2>
 		<ul class="info__list">
-			<li class="info__content">Web <span class="info__content--highlighted">development.</span></li>
-			<li class="info__content">Software <span class="info__content--highlighted">engineering.</span></li>
-			<li class="info__content">UX/UI <span class="info__content--highlighted">design.</span></li>
+			<li class="info__content">
+				Web <span class="info__content--highlighted">development.</span>
+			</li>
+			<li class="info__content">
+				Software <span class="info__content--highlighted">engineering.</span>
+			</li>
+			<li class="info__content">
+				UX/UI <span class="info__content--highlighted">design.</span>
+			</li>
 		</ul>
 	</div>
 </div>
 <div class="grid-container">
 	<p class="intro intro--context">
-		Versatile and detail-oriented self-taught programmer with prior experience in
-		the architecture, research and design sectors.
+		Versatile and detail-oriented self-taught programmer with prior experience
+		in the architecture, research and design sectors.
 	</p>
 	<p class="intro intro--goal">
 		Motivated to work on a team focused on good practices, continuous learning,
@@ -49,7 +52,6 @@ import Link from '@components/Link.astro'
 </div>
 
 <style lang="scss" scoped>
-	
 	.grid-container {
 		@include desktop {
 			display: grid;
@@ -133,5 +135,4 @@ import Link from '@components/Link.astro'
 			}
 		}
 	}
-
 </style>
