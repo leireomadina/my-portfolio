@@ -3,10 +3,10 @@
 		{
 			"id": 1,
 			"title": "rick & morty",
-			"text": "Character finder app from the famous TV-series built on React. Developed and designed during Adalab's bootcamp and later refactored and improved with TypeScript and testing.",
+			"text": "Character finder app built on React. Developed and designed during Adalab's bootcamp and later refactored and improved with TypeScript and testing.",
 			"links": [
 				{
-					"title": "Take a loot at the code",
+					"title": "Take a look at the code",
 					"href": "https://github.com/leireomadina/rick-and-morty-character-finder",
 					"isExternalLink": true,
 					"icon": "github"
@@ -43,48 +43,11 @@
 		},
 		{
 			"id": 2,
-			"title": "codeflix",
-			"text": " TV-series finder developed and designed during Adalab's bootcamp focused on JavaScript and later refactored.",
-			"links": [
-				{
-					"title": "Take a loot at the code",
-					"href": "https://github.com/leireomadina/codeflix-tv-series-finder",
-					"isExternalLink": true,
-					"icon": "github"
-				},
-				{
-					"title": "Visit the page",
-					"href": "https://leireomadina.github.io/codeflix-tv-series-finder/",
-					"isExternalLink": true,
-					"icon": "arrow"
-				}
-			],
-			"tags": [
-				{
-					"id": 1,
-					"text": "JavaScript"
-				},
-				{
-					"id": 2,
-					"text": "SASS"
-				},
-				{
-					"id": 3,
-					"text": "HTML"
-				},
-				{
-					"id": 4,
-					"text": "UI Design"
-				}
-			]
-		},
-		{
-			"id": 3,
 			"title": "my portfolio",
 			"text": "Designed from scratch in Figma and brought to life with Astro. Development in progress.",
 			"links": [
 				{
-					"title": "Take a loot at the cod",
+					"title": "Take a loot at the code",
 					"href": "https://github.com/leireomadina/my-portfolio",
 					"isExternalLink": true,
 					"icon": "github"
@@ -110,11 +73,11 @@
 					"text": "HTML"
 				},
 				{
-					"id": 3,
+					"id": 4,
 					"text": "UI design"
 				},
 				{
-					"id": 3,
+					"id": 5,
 					"text": "Figma"
 				}
 			]
