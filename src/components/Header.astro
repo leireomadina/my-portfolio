@@ -1,17 +1,30 @@
 ---
 import ThemeToggler from './ThemeToggler.astro'
+import Menu from './Menu.astro'
 ---
 
 <header class="header">
-	<ThemeToggler />
-	<h1 class="header__title">
+	<div class="header__container">
+		<h1 class="header__subtitle">Leire Ordeñana</h1>
+		<div class="header__container">
+			<Menu />
+			<ThemeToggler />
+		</div>
+	</div>
+	<h2 class="header__role">Front-end developer & UI/UX designer</h2>
+	<h3 class="header__title">
 		<span class="header__headline">
-			<span class="header__headline--block">Hi,</span> I'm <span class="header__headline--highlighted">Leire 👋🏼</span>
+			<span class="header__headline--block"
+				>I build digital products with
+			</span><span
+				class="header__headline--highlighted header__tagline--italic"
+			>
+				&nbsp;intention</span
+			> and<span class="header__headline--highlighted header__tagline--italic"
+				>&nbsp;care</span
+			>
 		</span>
-		<span class="header__tagline">
-			I <i class="header__tagline--italic">craft</i> digital experiences
-		</span>
-	</h1>
+	</h3>
 </header>
 
 <style lang="scss">
@@ -20,11 +33,13 @@ import ThemeToggler from './ThemeToggler.astro'
 		padding: 3rem 1rem 1rem 1rem;
 
 		@include tablet {
-			padding-top: 4rem;
+			padding-top: 2rem;
 		}
 
-		@include desktop {
-			padding-top: 6rem;
+		&__container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 		}
 
 		&__title {
@@ -41,8 +56,31 @@ import ThemeToggler from './ThemeToggler.astro'
 			}
 		}
 
+		&__subtitle {
+			font-size: 1rem;
+			font-family: $font-title-italic;
+
+			@include desktop {
+				font-size: 1.5vw;
+			}
+		}
+
+		&__role {
+			margin-bottom: 1rem;
+			font-size: 1rem;
+
+			@include desktop {
+				font-size: 1.5vw;
+			}
+		}
+
 		&__headline {
 			display: block;
+			width: 100%;
+
+			@include desktop {
+				width: 70vw;
+			}
 
 			&--block {
 				@include only-small-mobile {

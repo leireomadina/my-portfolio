@@ -26,8 +26,7 @@
 
 <style lang="scss">
 	.theme-toggle {
-		position: absolute;
-		right: 1rem;
+		margin: 0 0 0.5rem 3rem;
 		padding: 0;
 		width: 28px;
 		height: 28px;
@@ -92,7 +91,7 @@
 			return previouslySavedColourMode
 		}
 
-		if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			return DARK_THEME
 		}
 		return LIGHT_THEME
@@ -101,7 +100,7 @@
 	const initialColourMode = getInitialColourTheme()
 
 	const setColourMode = (mode: string) => {
-		if(mode === LIGHT_THEME) {
+		if (mode === LIGHT_THEME) {
 			rootEl.classList.remove(DARK_THEME_CLASS)
 		} else {
 			rootEl.classList.add(DARK_THEME_CLASS)
