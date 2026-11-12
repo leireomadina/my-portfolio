@@ -1,55 +1,63 @@
 @use 'variables' as *;
 
 html {
-	background-color: #f2f2f2;
-	color: #292829;
+	background-color: $color-light;
+	color: $color-dark;
 	transition: 0.25s ease-out all;
 
 	a,
 	a:visited {
-		color: #292829;
+		color: $color-dark;
 	}
 }
 
 html.dark {
-	background-color: #292829;
-	color: #f2f2f2;
+	background-color: $color-dark;
+	color: $color-light;
 	transition: 0.25s ease-out all;
 
 	a,
 	a:visited {
-		color: #9bdd9b;
+		color: $color-green-lighter;
+	}
+
+	.menu {
+		background-color: $color-dark;
+
+		@media (min-width: 680px) {
+			background-color: transparent;
+		}
 	}
 
 	.header .header__headline .header__headline--highlighted {
-		color: #fec8c8;
+		color: $color-pink-light;
 	}
 
 	.intro .intro--highlighted,
 	.info .info__content {
-		color: #fec8c8;
+		color: $color-pink-light;
 	}
 
 	.socials svg,
 	.socials svg path,
 	.projects svg,
 	.projects svg path {
-		stroke: #9bdd9b;
+		stroke: $color-green-lighter;
 	}
 
 	.experience ul:first-child {
-		border-top: 1px solid #ccc;
+		border-top: 1px solid $color-lighter-grey;
 	}
 
 	.socials li {
-		border-bottom: 2px solid #9bdd9b;
+		border-bottom: 2px solid $color-green-lighter;
 	}
 
 	.card {
-		border-bottom: 1px solid #ccc;
+		border-bottom: 1px solid $color-lighter-grey;
 	}
 
 	.experience .card__title {
-		color: #fec8c8;
+		color: $color-pink-light;
 	}
 }
