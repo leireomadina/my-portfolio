@@ -6,7 +6,7 @@ import Menu from './Menu.astro'
 <header class="header">
 	<div class="header__container">
 		<h1 class="header__subtitle">Leire Ordeñana</h1>
-		<div class="header__container">
+		<div class="header__actions">
 			<Menu />
 			<ThemeToggler />
 		</div>
@@ -40,6 +40,16 @@ import Menu from './Menu.astro'
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+		}
+
+		&__actions {
+			display: flex;
+			align-items: center;
+			gap: 1.5rem;
+
+			@include tablet {
+				gap: 3rem;
+			}
 		}
 
 		&__title {

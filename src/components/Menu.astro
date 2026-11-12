@@ -1,34 +1,193 @@
-<nav aria-label="Main">
-	<ul class="menu">
-		<li>
-			<a href="#about">About</a>
-		</li>
-		<li>
-			<a href="#socials">Socials</a>
-		</li>
-		<li>
-			<a href="#experience">Experience</a>
-		</li>
+---
+import Link from '@components/Link.astro'
+import { links } from '@data/menu.json'
+---
+
+<nav class="menu-nav" aria-label="Main">
+	<button
+		class="menu-toggle"
+		type="button"
+		aria-expanded="false"
+		aria-controls="main-menu"
+		aria-label="Open menu"
+	>
+		<span class="menu-toggle__bar" aria-hidden="true"></span>
+		<span class="menu-toggle__bar" aria-hidden="true"></span>
+		<span class="menu-toggle__bar" aria-hidden="true"></span>
+	</button>
+	<ul class="menu" id="main-menu">
+		{
+			links.map(({ text, href, title }) => (
+				<li>
+					<Link href={href} title={title}>
+						{text}
+					</Link>
+				</li>
+			))
+		}
 	</ul>
 </nav>
 
 <style lang="scss">
-	.menu {
+	$bar-height: 2px;
+	$bar-gap: 6px;
+
+	.menu-nav {
+		order: 1; // mobile: hamburger in the far-right corner, after the theme toggle
+
+		@include tablet {
+			order: 0; // desktop: links before the theme toggle
+		}
+	}
+
+	.menu-toggle {
+		position: relative;
+		z-index: 2;
 		display: flex;
-		align-items: center;
-		gap: 1.5rem;
+		flex-direction: column;
+		justify-content: center;
+		gap: $bar-gap;
+		width: 28px;
+		height: 28px;
+		padding: 0;
+		border: 0;
+		background: none;
+		color: inherit;
+		cursor: pointer;
 
-		a {
-			font-size: 1rem;
-			text-decoration: none;
+		@include tablet {
+			display: none;
+		}
 
-			@include desktop {
-				font-size: 1.5vw;
+		&__bar {
+			display: block;
+			width: 100%;
+			height: $bar-height;
+			border-radius: $bar-height;
+			background-color: currentColor;
+			transition:
+				transform 0.25s ease-out,
+				opacity 0.25s ease-out;
+		}
+
+		// Morph the three bars into an X
+		&[aria-expanded='true'] &__bar {
+			&:nth-child(1) {
+				transform: translateY($bar-height + $bar-gap) rotate(45deg);
 			}
+
+			&:nth-child(2) {
+				opacity: 0;
+			}
+
+			&:nth-child(3) {
+				transform: translateY(-($bar-height + $bar-gap)) rotate(-45deg);
+			}
+		}
+	}
+
+	.menu {
+		// Mobile: full-screen overlay, hidden until the toggle opens it
+		position: fixed;
+		inset: 0;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+		margin: 0;
+		background-color: $color-light;
+		opacity: 0;
+		visibility: hidden;
+		transition:
+			opacity 0.25s ease-out,
+			visibility 0.25s ease-out;
+
+		// The toggle's aria-expanded is the single source of truth for the open state.
+		// Requires the <ul> to come right after the button in the markup.
+		.menu-toggle[aria-expanded='true'] + & {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		// The <a> is rendered by Link.astro (which sets the colour), so it needs :global to be reached from here
+		:global(a) {
+			font-size: 2rem;
+			text-decoration: none;
 
 			&:hover {
 				text-decoration: underline;
 			}
 		}
+
+		@include tablet {
+			position: static;
+			flex-direction: row;
+			gap: 1.5rem;
+			background-color: transparent;
+			opacity: 1;
+			visibility: visible;
+			transition: none;
+
+			:global(a) {
+				font-size: 1rem;
+			}
+		}
+
+		@include desktop {
+			:global(a) {
+				font-size: 1.5vw;
+			}
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.menu,
+		.menu-toggle__bar {
+			transition: none;
+		}
+	}
+
+	// Lock page scroll behind the open overlay
+	:global(html:has(.menu-toggle[aria-expanded='true'])) {
+		overflow: hidden;
 	}
 </style>
+
+<script>
+	const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle')
+	const menu = document.querySelector<HTMLUListElement>('#main-menu')
+	const tabletQuery = window.matchMedia('(min-width: 680px)')
+
+	// Only aria-expanded changes; the CSS derives the overlay and scroll lock from it
+	const setMenuOpen = (isOpen: boolean) => {
+		toggle?.setAttribute('aria-expanded', String(isOpen))
+		toggle?.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu')
+	}
+
+	const isMenuOpen = () => toggle?.getAttribute('aria-expanded') === 'true'
+
+	toggle?.addEventListener('click', () => setMenuOpen(!isMenuOpen()))
+
+	// Close after picking a section so the page can scroll to it
+	menu?.addEventListener('click', (event) => {
+		if ((event.target as HTMLElement).closest('a')) {
+			setMenuOpen(false)
+		}
+	})
+
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape' && isMenuOpen()) {
+			setMenuOpen(false)
+			toggle?.focus()
+		}
+	})
+
+	// Reset if the viewport grows past the mobile breakpoint while open
+	tabletQuery.addEventListener('change', (event) => {
+		if (event.matches) {
+			setMenuOpen(false)
+		}
+	})
+</script>
