@@ -1,0 +1,22 @@
+{
+	"links": [
+		{
+			"id": 0,
+			"text": "About",
+			"href": "#about",
+			"title": "Go to the About section"
+		},
+		{
+			"id": 1,
+			"text": "Socials",
+			"href": "#socials",
+			"title": "Go to the Socials section"
+		},
+		{
+			"id": 2,
+			"text": "Experience",
+			"href": "#experience",
+			"title": "Go to the Experience section"
+		}
+	]
+}
