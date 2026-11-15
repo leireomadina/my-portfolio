@@ -27,7 +27,7 @@ import { links } from '@data/menu.json'
 		type="button"
 		aria-expanded="false"
 		aria-controls="main-menu"
-		aria-label="Open menu"
+		aria-label="Menu"
 	>
 		<span class="menu-toggle__bar" aria-hidden="true"></span>
 		<span class="menu-toggle__bar" aria-hidden="true"></span>
@@ -199,10 +199,10 @@ import { links } from '@data/menu.json'
 	const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle')
 	const menu = document.querySelector<HTMLUListElement>('#main-menu')
 
-	// Only aria-expanded changes; the CSS derives the overlay and scroll lock from it
+	// aria-expanded is the only state; the CSS derives everything else from it.
+	// The label stays "Menu" on purpose: screen readers already announce expanded/collapsed
 	const setMenuOpen = (isOpen: boolean) => {
 		toggle?.setAttribute('aria-expanded', String(isOpen))
-		toggle?.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu')
 	}
 
 	const isMenuOpen = () => toggle?.getAttribute('aria-expanded') === 'true'

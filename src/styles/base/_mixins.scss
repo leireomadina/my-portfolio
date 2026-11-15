@@ -26,9 +26,10 @@ $-tablet: 680px;
 	}
 }
 
-// Everything below `tablet`, with no overlap at the breakpoint itself
+// Negation of `tablet`: no overlap or gap at the breakpoint. Not `width <`
+// (range syntax), which Safari < 16.4 doesn't support
 @mixin only-mobile() {
-	@media (width < $-tablet) {
+	@media not all and (min-width: $-tablet) {
 		@content;
 	}
 }
