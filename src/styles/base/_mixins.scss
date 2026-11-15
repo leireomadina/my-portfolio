@@ -34,6 +34,12 @@ $-tablet: 680px;
 	}
 }
 
+// Desktop small text (name, role, menu links): grows with the window, but never
+// below the user's base text size, so enlarged browser text settings still apply
+@mixin fluid-small-text() {
+	font-size: max(1rem, 1.5vw);
+}
+
 @mixin only-small-mobile() {
 	@media (max-width: 480px) {
 		@content;
