@@ -6,20 +6,17 @@ import Menu from './Menu.astro'
 <header class="header">
 	<div class="header__container">
 		<h1 class="header__subtitle">Leire Ordeñana</h1>
-		<div class="header__actions">
-			<Menu />
+		<Menu>
 			<ThemeToggler />
-		</div>
+		</Menu>
 	</div>
 	<h2 class="header__role">Front-end developer & UI/UX designer</h2>
 	<h3 class="header__title">
 		<span class="header__headline">
 			<span class="header__headline--block"
-				>I build digital products with
-			</span><span
-				class="header__headline--highlighted header__tagline--italic"
-			>
-				&nbsp;intention</span
+				>I build digital products with&nbsp;</span
+			><span class="header__headline--highlighted header__tagline--italic"
+				>intention</span
 			> and<span class="header__headline--highlighted header__tagline--italic"
 				>&nbsp;care</span
 			>
@@ -40,16 +37,6 @@ import Menu from './Menu.astro'
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-		}
-
-		&__actions {
-			display: flex;
-			align-items: center;
-			gap: 1.5rem;
-
-			@include tablet {
-				gap: 3rem;
-			}
 		}
 
 		&__title {
