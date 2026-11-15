@@ -21,7 +21,8 @@ Personal single-page portfolio built with Astro + SCSS, deployed to Vercel (`@as
 - **Content is data-driven**: sections render from JSON in `src/data/` (`experience.json`, `projects.json`, `otherProjects.json`, `socials.json`), imported via named import, e.g. `import { projects } from '@data/projects.json'`. Edit copy there, not in components.
   - `ExperienceCard` renders titles with `set:html`, so `experience.json` titles may contain HTML. The `.card__title--highlighted` class used inside that HTML is defined globally in `globals.scss` because scoped component styles can't reach it.
 - **Base building blocks**: `BaseSection` (`<section>` with optional `id`/`class`), `BaseWrapper`, `BaseCard`, and `Link` (handles external links) are reused across sections.
-- **In-page navigation**: `Menu.astro` links to `#about`, `#socials`, `#experience`; those ids live on `AboutMe`, `Socials`, and the `BaseSection` in `Experience`. Keep them in sync when renaming sections.
+- **In-page navigation**: the menu links come from `src/data/menu.json` (`#about`, `#socials`, `#experience`); those ids live on `AboutMe`, `Socials`, and the `BaseSection` in `Experience`. Keep them in sync when renaming sections.
+- **Menu** (`Menu.astro`): markup order is links → `<slot />` (Header passes `ThemeToggler`) → hamburger button, so DOM order matches the visual order on both layouts; don't reorder with CSS `order`. The button's `aria-expanded` is the only open/closed state: CSS derives the ✕, the overlay, the scroll lock and hiding the page behind it (mobile only, via `only-mobile`). The script only flips the attribute.
 - **Path aliases** (tsconfig): `@components/*`, `@layouts/*`, `@pages/*`, `@assets/*`, `@data/*`.
 
 ## Styling
