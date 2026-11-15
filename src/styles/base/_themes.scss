@@ -1,7 +1,10 @@
 @use 'variables' as *;
 
+// --color-bg is the page background per theme; full-screen surfaces like the
+// mobile menu overlay reuse it so they follow the theme without overrides here
 html {
-	background-color: $color-light;
+	--color-bg: #{$color-light};
+	background-color: var(--color-bg);
 	color: $color-dark;
 	transition: 0.25s ease-out all;
 
@@ -12,21 +15,13 @@ html {
 }
 
 html.dark {
-	background-color: $color-dark;
+	--color-bg: #{$color-dark};
 	color: $color-light;
 	transition: 0.25s ease-out all;
 
 	a,
 	a:visited {
 		color: $color-green-lighter;
-	}
-
-	.menu {
-		background-color: $color-dark;
-
-		@media (min-width: 680px) {
-			background-color: transparent;
-		}
 	}
 
 	.header .header__headline .header__headline--highlighted {

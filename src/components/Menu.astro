@@ -107,7 +107,9 @@ import { links } from '@data/menu.json'
 		justify-content: center;
 		gap: 2rem;
 		margin: 0;
-		background-color: $color-light;
+		background-color: var(
+			--color-bg
+		); // page background per theme (_themes.scss)
 		opacity: 0;
 		visibility: hidden;
 		transition:
@@ -161,30 +163,34 @@ import { links } from '@data/menu.json'
 		}
 	}
 
-	// Lock page scroll behind the open overlay
-	:global(html:has(.menu-toggle[aria-expanded='true'])) {
-		overflow: hidden;
-	}
+	// Overlay effects only exist below tablet, so if the window grows to desktop
+	// while the menu is open, nothing stays locked or hidden (no resize JS needed)
+	@include only-mobile {
+		// Lock page scroll behind the open overlay
+		:global(html:has(.menu-toggle[aria-expanded='true'])) {
+			overflow: hidden;
+		}
 
-	// While open, hide the page behind the overlay so Tab and screen readers stay
-	// in the menu (no JS needed). The delay lets the overlay fade in first.
-	:global(body:has(.menu-toggle[aria-expanded='true'])) {
-		visibility: hidden;
-		transition: visibility 0s 0.25s;
-	}
+		// While open, hide the page behind the overlay so Tab and screen readers stay
+		// in the menu (no JS needed). The delay lets the overlay fade in first.
+		:global(body:has(.menu-toggle[aria-expanded='true'])) {
+			visibility: hidden;
+			transition: visibility 0s 0.25s;
+		}
 
-	// …except the slotted controls (theme toggle), which sit under the overlay
-	.menu-nav:has(.menu-toggle[aria-expanded='true'])
-		> :global(:not(.menu, .menu-toggle)) {
-		visibility: hidden;
-		transition: visibility 0s 0.25s;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		:global(body:has(.menu-toggle[aria-expanded='true'])),
+		// …except the slotted controls (theme toggle), which sit under the overlay
 		.menu-nav:has(.menu-toggle[aria-expanded='true'])
 			> :global(:not(.menu, .menu-toggle)) {
-			transition: none; // no fade to wait for
+			visibility: hidden;
+			transition: visibility 0s 0.25s;
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			:global(body:has(.menu-toggle[aria-expanded='true'])),
+			.menu-nav:has(.menu-toggle[aria-expanded='true'])
+				> :global(:not(.menu, .menu-toggle)) {
+				transition: none; // no fade to wait for
+			}
 		}
 	}
 </style>
@@ -192,7 +198,6 @@ import { links } from '@data/menu.json'
 <script>
 	const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle')
 	const menu = document.querySelector<HTMLUListElement>('#main-menu')
-	const tabletQuery = window.matchMedia('(min-width: 680px)')
 
 	// Only aria-expanded changes; the CSS derives the overlay and scroll lock from it
 	const setMenuOpen = (isOpen: boolean) => {
@@ -220,13 +225,6 @@ import { links } from '@data/menu.json'
 		if (event.key === 'Escape' && isMenuOpen()) {
 			setMenuOpen(false)
 			toggle?.focus()
-		}
-	})
-
-	// Reset if the viewport grows past the mobile breakpoint while open
-	tabletQuery.addEventListener('change', (event) => {
-		if (event.matches) {
-			setMenuOpen(false)
 		}
 	})
 </script>

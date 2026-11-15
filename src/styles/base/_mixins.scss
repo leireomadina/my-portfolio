@@ -1,3 +1,7 @@
+// Shared by `tablet` and `only-mobile` so they can't drift apart. Private (the `-`
+// prefix), so components can't use it directly and have to use the mixins
+$-tablet: 680px;
+
 @mixin mobile() {
 	@media (min-width: 400px) {
 		@content;
@@ -11,7 +15,7 @@
 }
 
 @mixin tablet() {
-	@media (min-width: 680px) {
+	@media (min-width: $-tablet) {
 		@content;
 	}
 }
@@ -22,8 +26,9 @@
 	}
 }
 
+// Everything below `tablet`, with no overlap at the breakpoint itself
 @mixin only-mobile() {
-	@media (max-width: 680px) {
+	@media (width < $-tablet) {
 		@content;
 	}
 }
