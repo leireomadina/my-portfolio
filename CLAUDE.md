@@ -32,7 +32,7 @@ Personal single-page portfolio built with Astro + SCSS, deployed to Vercel (`@as
 - Breakpoint mixins are mobile-first `min-width`: `mobile` (400px), `big-mobile` (500px), `tablet` (680px), `desktop` (1180px); plus `only-mobile` (everything below `tablet`, no overlap) and `only-small-mobile` (`max-width: 480px`). `tablet` and `only-mobile` share the private `$-tablet` value in `_mixins.scss`. Never hard-code breakpoint values in media queries or JS; use the mixins.
 - Don't size text in plain `vw`: it ignores the user's browser text size. Use `max(1rem, …vw)` so text never drops below the user's base size, as in the `fluid-small-text` mixin (desktop name, role and menu links).
 - **Dark mode**: `ThemeToggler.astro` toggles a `dark` class on `<html>` (persisted in `localStorage` under `COLOUR_MODE`, falling back to `prefers-color-scheme`). All dark-theme overrides live centrally in `src/styles/base/_themes.scss` using global selectors that target component class names, so renaming a component's classes requires updating `_themes.scss` too. The page background is the `--color-bg` custom property (set per theme on `html`); surfaces that should match the page (e.g. the mobile menu overlay) use `var(--color-bg)` instead of adding dark-mode overrides.
-- Component styles are scoped by Astro by default; global rules go in `src/styles/`.
+- Component styles are scoped by Astro by default; global rules go in `src/styles/`. Exception: a global rule that only exists for one component's behaviour stays in that component with `:global(...)` (e.g. `Menu.astro`'s `html`/`body` rules that lock scroll and hide the page while the menu is open).
 
 ## Testing
 
