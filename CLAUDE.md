@@ -15,6 +15,10 @@ Personal single-page portfolio built with Astro + SCSS, deployed to Vercel (`@as
 - Single test file: `pnpm test --run test/BaseSection.test.ts`; single test by name: `pnpm test --run -t "all props"`
 - `pnpm lint:fix` — ESLint with auto-fix; `pnpm format` — Prettier write
 
+## Astro docs
+
+The project-scoped `astro-docs` MCP server (`.mcp.json`) exposes `search_astro_docs`. Before writing or changing code that uses an Astro API, config option or directive, check it there instead of relying on memory, especially experimental APIs like the Container API, which can break in minor releases. Compare what you find with the installed `astro` version in `package.json`. If the docs conflict with a rule in this file, this file wins: these are deliberate project choices.
+
 ## Architecture
 
 - **Single page**: `src/pages/index.astro` composes section components inside `src/layouts/BaseLayout.astro`, which holds all `<head>` SEO/OG meta and imports `src/styles/globals.scss`. `Projects.astro` and `OtherProjects.astro` exist but are not currently mounted in `index.astro`.
