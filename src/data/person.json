@@ -1,0 +1,16 @@
+{
+	"person": {
+		"name": "Leire Ordeñana Madina",
+		"alternateNames": ["Leire Ordeñana", "Leire"],
+		"role": "Front-end developer & UI/UX designer",
+		"employer": {
+			"name": "Kaytek",
+			"url": "https://www.kaytek.es/"
+		},
+		"location": {
+			"city": "Getxo",
+			"region": "Bizkaia",
+			"country": "ES"
+		}
+	}
+}

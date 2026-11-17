@@ -18,7 +18,8 @@ Personal single-page portfolio built with Astro + SCSS, deployed to Vercel (`@as
 ## Architecture
 
 - **Single page**: `src/pages/index.astro` composes section components inside `src/layouts/BaseLayout.astro`, which holds all `<head>` SEO/OG meta and imports `src/styles/globals.scss`. `Projects.astro` and `OtherProjects.astro` exist but are not currently mounted in `index.astro`.
-- **Content is data-driven**: sections render from JSON in `src/data/` (`experience.json`, `projects.json`, `otherProjects.json`, `socials.json`), imported via named import, e.g. `import { projects } from '@data/projects.json'`. Edit copy there, not in components.
+- **Content is data-driven**: sections render from JSON in `src/data/` (`experience.json`, `projects.json`, `otherProjects.json`, `socials.json`, `person.json`), imported via named import, e.g. `import { projects } from '@data/projects.json'`. Edit copy there, not in components.
+  - `BaseLayout` builds the Person JSON-LD (structured data for search engines) from `person.json` (name, role, employer, location) and the `socials.json` links (`sameAs`). Keep `person.json` in sync with the visible page text.
   - `ExperienceCard` renders titles with `set:html`, so `experience.json` titles may contain HTML. The `.card__title--highlighted` class used inside that HTML is defined globally in `globals.scss` because scoped component styles can't reach it.
 - **Base building blocks**: `BaseSection` (`<section>` with optional `id`/`class`), `BaseWrapper`, `BaseCard`, and `Link` (handles external links) are reused across sections.
 - **In-page navigation**: the menu links come from `src/data/menu.json` (`#about`, `#socials`, `#experience`); those ids live on `AboutMe`, `Socials`, and the `BaseSection` in `Experience`. Keep them in sync when renaming sections.
