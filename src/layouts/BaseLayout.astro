@@ -7,6 +7,8 @@ import { links as socialLinks } from '@data/socials.json'
 const site = Astro.site ?? new URL('https://leireomadina.vercel.app')
 // Always the production URL, so Vercel preview deployments aren't indexed as duplicates
 const canonicalUrl = new URL(Astro.url.pathname, site).href
+const ogImageUrl = new URL('/og-image.jpg', site).href
+const pageTitle = `${person.name} | ${person.role}`
 const personSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Person',
@@ -14,7 +16,7 @@ const personSchema = {
 	alternateName: person.alternateNames,
 	jobTitle: person.role,
 	url: site.href,
-	image: new URL('/og-image.jpg', site).href,
+	image: ogImageUrl,
 	worksFor: {
 		'@type': 'Organization',
 		name: person.employer.name,
@@ -33,13 +35,13 @@ const personSchema = {
 <!doctype html>
 <html lang="en">
 	<head>
-		<title>Leire Ordeñana Madina | Front-end developer</title>
+		<title>{pageTitle}</title>
 		<meta charset="utf-8" />
 		<meta
 			name="description"
 			content="Front-end developer with more than five years of experience specialized in UI development and design with JavaScript, Vue, CSS, SASS, and HTML."
 		/>
-		<meta name="author" content="Leire Ordeñana Madina" />
+		<meta name="author" content={person.name} />
 		<meta
 			name="keywords"
 			content="web developer, developer, web development, fullstack, fullstack developer, frontend, frontend developer, portfolio, web, ui, ux ui, web design, bilbao"
@@ -48,36 +50,24 @@ const personSchema = {
 		<meta name="generator" content={Astro.generator} />
 
 		<!-- Open Graph -->
-		<meta
-			property="og:title"
-			content="Leire Ordeñana Madina | Front-end developer"
-		/>
+		<meta property="og:title" content={pageTitle} />
 		<meta
 			property="og:description"
 			content="Front-end developer with more than five years of experience specialized in UI development and design."
 		/>
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalUrl} />
-		<meta
-			property="og:image"
-			content="https://leireomadina.vercel.app/og-image.jpg"
-		/>
+		<meta property="og:image" content={ogImageUrl} />
 		<meta property="og:site_name" content="Leire's Portfolio" />
 
 		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta
-			name="twitter:title"
-			content="Leire Ordeñana Madina | Front-end developer"
-		/>
+		<meta name="twitter:title" content={pageTitle} />
 		<meta
 			name="twitter:description"
 			content="Front-end developer with more than five years of experience specialized in UI development and design."
 		/>
-		<meta
-			name="twitter:image"
-			content="https://leireomadina.vercel.app/og-image.jpg"
-		/>
+		<meta name="twitter:image" content={ogImageUrl} />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="canonical" href={canonicalUrl} />
