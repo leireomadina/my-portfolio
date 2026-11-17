@@ -4,14 +4,18 @@ import Menu from './Menu.astro'
 ---
 
 <header class="header">
-	<div class="header__container">
-		<h1 class="header__subtitle">Leire Ordeñana</h1>
-		<Menu>
-			<ThemeToggler />
-		</Menu>
+	<div class="header__top">
+		<h1 class="header__heading">
+			<span class="header__subtitle">Leire Ordeñana</span>
+			<span class="header__role">Front-end developer & UI/UX designer</span>
+		</h1>
+		<div class="header__menu">
+			<Menu>
+				<ThemeToggler />
+			</Menu>
+		</div>
 	</div>
-	<h2 class="header__role">Front-end developer & UI/UX designer</h2>
-	<h3 class="header__title">
+	<p class="header__title">
 		<span class="header__headline">
 			I build digital products{' '}
 			<span class="header__headline--nowrap">
@@ -23,7 +27,7 @@ import Menu from './Menu.astro'
 				<span class="header__headline--highlighted">care</span>
 			</span>
 		</span>
-	</h3>
+	</p>
 </header>
 
 <style lang="scss">
@@ -34,14 +38,39 @@ import Menu from './Menu.astro'
 			padding-top: 2rem;
 		}
 
-		&__container {
+		// Name + role on the left, menu on the right of the name's line
+		&__top {
+			// Size of the name and role text; the menu is centred on the name's line with it
+			--name-size: 1rem;
+
+			display: grid;
+			grid-template-areas: 'top';
+
+			@include desktop {
+				--name-size: #{$fluid-small-text};
+			}
+		}
+
+		&__heading {
+			grid-area: top;
+			margin: 0.67em 0 1rem;
+			font-size: var(--name-size);
+			line-height: 1.15;
+		}
+
+		&__menu {
+			grid-area: top;
+			justify-self: end;
 			display: flex;
 			align-items: center;
-			justify-content: space-between;
+			// Same box as the name's line, so the menu is centred on it
+			height: calc(1.15 * var(--name-size));
+			margin-top: calc(0.67 * var(--name-size));
 		}
 
 		&__title {
 			margin: 0;
+			font-weight: bold;
 			font-family: $font-title;
 			font-size: fluid-vw(11vw);
 
@@ -55,21 +84,13 @@ import Menu from './Menu.astro'
 		}
 
 		&__subtitle {
-			font-size: 1rem;
+			display: block;
 			font-family: $font-title-italic;
-
-			@include desktop {
-				@include fluid-small-text;
-			}
 		}
 
 		&__role {
-			margin-bottom: 1rem;
-			font-size: 1rem;
-
-			@include desktop {
-				@include fluid-small-text;
-			}
+			display: block;
+			margin-top: 1.5em;
 		}
 
 		&__headline {

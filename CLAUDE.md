@@ -18,10 +18,12 @@ Personal single-page portfolio built with Astro + SCSS, deployed to Vercel (`@as
 ## Architecture
 
 - **Single page**: `src/pages/index.astro` composes section components inside `src/layouts/BaseLayout.astro`, which holds all `<head>` SEO/OG meta and imports `src/styles/globals.scss`. `Projects.astro` and `OtherProjects.astro` exist but are not currently mounted in `index.astro`.
-- **Content is data-driven**: sections render from JSON in `src/data/` (`experience.json`, `projects.json`, `otherProjects.json`, `socials.json`), imported via named import, e.g. `import { projects } from '@data/projects.json'`. Edit copy there, not in components.
+- **Content is data-driven**: sections render from JSON in `src/data/` (`experience.json`, `projects.json`, `otherProjects.json`, `socials.json`, `person.json`), imported via named import, e.g. `import { projects } from '@data/projects.json'`. Edit copy there, not in components.
+  - `BaseLayout` builds the Person JSON-LD (structured data for search engines) from `person.json` (name, role, employer, location) and the `socials.json` links (`sameAs`). Keep `person.json` in sync with the visible page text.
   - `ExperienceCard` renders titles with `set:html`, so `experience.json` titles may contain HTML. The `.card__title--highlighted` class used inside that HTML is defined globally in `globals.scss` because scoped component styles can't reach it.
 - **Base building blocks**: `BaseSection` (`<section>` with optional `id`/`class`), `BaseWrapper`, `BaseCard`, and `Link` (handles external links) are reused across sections.
 - **In-page navigation**: the menu links come from `src/data/menu.json` (`#about`, `#socials`, `#experience`); those ids live on `AboutMe`, `Socials`, and the `BaseSection` in `Experience`. Keep them in sync when renaming sections.
+- **Heading outline**: one `<h1>` in `Header` with the name and role (matches the `<title>`); the tagline under it is a `<p>`, not a heading. Each section starts with an `<h2>` named like its menu link (About, Socials, Experience), visually hidden with the global `.visually-hidden` class until sections get visible titles; headings inside a section are `<h3>` (experience cards add an `<h4>` for the company).
 - **Menu** (`Menu.astro`): markup order is links → `<slot />` (Header passes `ThemeToggler`) → hamburger button, so DOM order matches the visual order on both layouts; don't reorder with CSS `order`. The button's `aria-expanded` is the only open/closed state: CSS derives the ✕, the overlay, the scroll lock and hiding the page behind it (mobile only, via `only-mobile`). The script only flips the attribute.
 - **Path aliases** (tsconfig): `@components/*`, `@layouts/*`, `@pages/*`, `@assets/*`, `@data/*`.
 
