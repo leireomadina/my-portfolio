@@ -7,7 +7,7 @@ type AstroContainerInstance = Awaited<ReturnType<typeof AstroContainer.create>>
 type AstroComponentFactory = Parameters<AstroContainerInstance['renderToString']>[0]
 
 type RenderOptions<T extends AstroComponentFactory> = Omit<ContainerRenderOptions, 'props'> & {
-  // @ts-expect-error ComponentProps no encaja exactamente
+  // @ts-expect-error ComponentProps wants a one-argument function, but AstroComponentFactory takes three. Imported .astro components take only props, so this still gives the right type.
   props?: ComponentProps<T>
 };
 
