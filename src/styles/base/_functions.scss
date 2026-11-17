@@ -3,3 +3,10 @@
 @function toRem($pxValue) {
 	@return math.div($pxValue, 16px) * 1rem;
 }
+
+// Viewport-scaled font size that never drops below its size on a 280px screen,
+// expressed in rem, so it still grows with the user's browser text size.
+// e.g. fluid-vw(11vw) → max(1.925rem, 11vw)
+@function fluid-vw($vw) {
+	@return max(toRem(math.div($vw, 1vw) * 2.8px), $vw);
+}
