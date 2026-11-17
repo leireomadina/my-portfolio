@@ -9,7 +9,7 @@
 !tsconfig.json
 !astro.config.mjs
 !package.json
-!.prettierrc.cjs
-!.eslintrc.cjs
+!prettier.config.js
+!eslint.config.js
 !vitest.config.ts
 !README.md
