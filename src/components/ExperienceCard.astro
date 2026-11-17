@@ -21,7 +21,7 @@ const { id, title, company, url, projects, tags, date } = Astro.props
 	{id && <p class="card__number">0{id}</p>}
 	<div>
 		<div class="card__top-container">
-			<h3 set:html={title} class="card__title"></h3>
+			<h3 set:html={title} class="card__title" />
 			<span class="card__dates"
 				><time>{date.start}</time> - <time>{date.end}</time></span
 			>
