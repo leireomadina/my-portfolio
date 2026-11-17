@@ -10,13 +10,9 @@ import { projects } from '@data/otherProjects.json'
 		<h2>Other projects</h2>
 		<ul>
 			{
-				projects.map( ({title,tags,links}) => (
+				projects.map(({ title, tags, links }) => (
 					<li>
-						<Card
-							title={title}
-							tags={tags}
-							links={links}
-						></Card>
+						<Card title={title} tags={tags} links={links} />
 					</li>
 				))
 			}
