@@ -1,3 +1,7 @@
+// Shared by `tablet` and `only-mobile` so they can't drift apart. Private (the `-`
+// prefix), so components can't use it directly and have to use the mixins
+$-tablet: 680px;
+
 @mixin mobile() {
 	@media (min-width: 400px) {
 		@content;
@@ -11,7 +15,7 @@
 }
 
 @mixin tablet() {
-	@media (min-width: 680px) {
+	@media (min-width: $-tablet) {
 		@content;
 	}
 }
@@ -22,10 +26,18 @@
 	}
 }
 
+// Negation of `tablet`: no overlap or gap at the breakpoint. Not `width <`
+// (range syntax), which Safari < 16.4 doesn't support
 @mixin only-mobile() {
-	@media (max-width: 680px) {
+	@media not all and (min-width: $-tablet) {
 		@content;
 	}
+}
+
+// Desktop small text (name, role, menu links): grows with the window, but never
+// below the user's base text size, so enlarged browser text settings still apply
+@mixin fluid-small-text() {
+	font-size: max(1rem, 1.5vw);
 }
 
 @mixin only-small-mobile() {

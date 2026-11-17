@@ -1,36 +1,49 @@
 ---
 import ThemeToggler from './ThemeToggler.astro'
+import Menu from './Menu.astro'
 ---
 
 <header class="header">
-	<ThemeToggler />
-	<h1 class="header__title">
+	<div class="header__container">
+		<h1 class="header__subtitle">Leire Ordeñana</h1>
+		<Menu>
+			<ThemeToggler />
+		</Menu>
+	</div>
+	<h2 class="header__role">Front-end developer & UI/UX designer</h2>
+	<h3 class="header__title">
 		<span class="header__headline">
-			<span class="header__headline--block">Hi,</span> I'm <span class="header__headline--highlighted">Leire 👋🏼</span>
+			I build digital products{' '}
+			<span class="header__headline--nowrap">
+				with<br class="header__headline--break" />{' '}
+				<span class="header__headline--highlighted">intention</span>
+			</span>{' '}
+			<span class="header__headline--nowrap">
+				and{' '}
+				<span class="header__headline--highlighted">care</span>
+			</span>
 		</span>
-		<span class="header__tagline">
-			I <i class="header__tagline--italic">craft</i> digital experiences
-		</span>
-	</h1>
+	</h3>
 </header>
 
 <style lang="scss">
 	.header {
-		position: relative;
 		padding: 3rem 1rem 1rem 1rem;
 
 		@include tablet {
-			padding-top: 4rem;
+			padding-top: 2rem;
 		}
 
-		@include desktop {
-			padding-top: 6rem;
+		&__container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 		}
 
 		&__title {
 			margin: 0;
 			font-family: $font-title;
-			font-size: 11vw;
+			font-size: fluid-vw(11vw);
 
 			@include tablet {
 				font-size: 5rem;
@@ -41,23 +54,49 @@ import ThemeToggler from './ThemeToggler.astro'
 			}
 		}
 
+		&__subtitle {
+			font-size: 1rem;
+			font-family: $font-title-italic;
+
+			@include desktop {
+				@include fluid-small-text;
+			}
+		}
+
+		&__role {
+			margin-bottom: 1rem;
+			font-size: 1rem;
+
+			@include desktop {
+				@include fluid-small-text;
+			}
+		}
+
 		&__headline {
 			display: block;
+			width: 100%;
 
-			&--block {
+			@include desktop {
+				width: 70vw;
+			}
+
+			// Keeps "with intention" and "and care" on the same line
+			&--nowrap {
+				white-space: nowrap;
+			}
+
+			// Small phones only: line break after "with"
+			&--break {
+				display: none;
+
 				@include only-small-mobile {
-					display: block;
+					display: inline;
 				}
 			}
 
 			&--highlighted {
-				color: $color-pink-dark;
-			}
-		}
-
-		&__tagline {
-			&--italic {
 				font-family: $font-title-italic;
+				color: $color-pink-dark;
 			}
 		}
 	}
