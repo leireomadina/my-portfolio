@@ -13,13 +13,15 @@ import Menu from './Menu.astro'
 	<h2 class="header__role">Front-end developer & UI/UX designer</h2>
 	<h3 class="header__title">
 		<span class="header__headline">
-			<span class="header__headline--block"
-				>I build digital products with&nbsp;</span
-			><span class="header__headline--highlighted header__tagline--italic"
-				>intention</span
-			> and<span class="header__headline--highlighted header__tagline--italic"
-				>&nbsp;care</span
-			>
+			I build digital products{' '}
+			<span class="header__headline--nowrap">
+				with<br class="header__headline--break" />{' '}
+				<span class="header__headline--highlighted">intention</span>
+			</span>{' '}
+			<span class="header__headline--nowrap">
+				and{' '}
+				<span class="header__headline--highlighted">care</span>
+			</span>
 		</span>
 	</h3>
 </header>
@@ -78,20 +80,23 @@ import Menu from './Menu.astro'
 				width: 70vw;
 			}
 
-			&--block {
+			// Keeps "with intention" and "and care" on the same line
+			&--nowrap {
+				white-space: nowrap;
+			}
+
+			// Small phones only: line break after "with"
+			&--break {
+				display: none;
+
 				@include only-small-mobile {
-					display: block;
+					display: inline;
 				}
 			}
 
 			&--highlighted {
-				color: $color-pink-dark;
-			}
-		}
-
-		&__tagline {
-			&--italic {
 				font-family: $font-title-italic;
+				color: $color-pink-dark;
 			}
 		}
 	}
