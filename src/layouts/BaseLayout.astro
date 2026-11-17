@@ -5,6 +5,8 @@ import { links as socialLinks } from '@data/socials.json'
 
 // Structured data so search engines know who the page is about (https://schema.org/Person)
 const site = Astro.site ?? new URL('https://leireomadina.vercel.app')
+// Always the production URL, so Vercel preview deployments aren't indexed as duplicates
+const canonicalUrl = new URL(Astro.url.pathname, site).href
 const personSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Person',
@@ -55,7 +57,7 @@ const personSchema = {
 			content="Front-end developer with more than five years of experience specialized in UI development and design."
 		/>
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://leireomadina.vercel.app" />
+		<meta property="og:url" content={canonicalUrl} />
 		<meta
 			property="og:image"
 			content="https://leireomadina.vercel.app/og-image.jpg"
@@ -78,6 +80,7 @@ const personSchema = {
 		/>
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonicalUrl} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
 		<script
