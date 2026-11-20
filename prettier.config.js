@@ -1,19 +1,18 @@
-module.exports = {
+/** @type {import('prettier').Config} */
+export default {
 	trailingComma: 'es5',
 	useTabs: true,
 	tabWidth: 2,
 	semi: false,
 	singleQuote: true,
 	endOfLine: 'auto',
-	plugins: [
-		'prettier-plugin-astro',
-	],
+	plugins: ['prettier-plugin-astro'],
 	overrides: [
-    {
-      files: '**/*.astro',
-      options: {
+		{
+			files: '**/*.astro',
+			options: {
 				parser: 'astro',
 			},
-    },
-  ],
+		},
+	],
 }
