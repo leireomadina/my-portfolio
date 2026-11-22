@@ -88,18 +88,8 @@ const personSchema = {
 		scroll-behavior: smooth;
 	}
 	body {
+		padding: fluid(0px, 48px);
 		font-family: $font-body;
-		font-size: 1.5rem;
-
-		@include tablet {
-			margin: 0 auto;
-			padding: 1.5rem;
-			font-size: toRem(24);
-		}
-
-		@include desktop {
-			padding: 3rem;
-			font-size: clamp(2rem, 2vw, 2.5rem);
-		}
+		font-size: fluid(24px, 32px, 680px, 1180px);
 	}
 </style>
