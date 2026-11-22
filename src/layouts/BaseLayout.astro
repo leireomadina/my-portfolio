@@ -89,16 +89,13 @@ const personSchema = {
 	}
 	body {
 		font-family: $font-body;
-		font-size: 1.5rem;
+		font-size: fluid(24px, 32px, 680px, 1180px);
 
 		@include tablet {
-			margin: 0 auto;
-			padding: 1.5rem;
-			font-size: toRem(24);
+			padding: fluid(24px, 48px, 680px, 1180px);
 		}
 
 		@include desktop {
-			padding: 3rem;
 			font-size: clamp(2rem, 2vw, 2.5rem);
 		}
 	}

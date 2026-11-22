@@ -2,18 +2,6 @@
 // prefix), so components can't use it directly and have to use the mixins
 $-tablet: 680px;
 
-@mixin mobile() {
-	@media (min-width: 400px) {
-		@content;
-	}
-}
-
-@mixin big-mobile() {
-	@media (min-width: 500px) {
-		@content;
-	}
-}
-
 @mixin tablet() {
 	@media (min-width: $-tablet) {
 		@content;
@@ -34,8 +22,8 @@ $-tablet: 680px;
 	}
 }
 
-// Desktop small text (name, role, menu links): grows with the window, but never
-// below the user's base text size, so enlarged browser text settings still apply.
+// Small text (name, role, desktop menu links): the user's base text size, growing with
+// the window on wide screens (above ~1067px), so enlarged browser text settings still apply.
 // The value is also exposed for layouts that need to size things to that text.
 $fluid-small-text: max(1rem, 1.5vw);
 

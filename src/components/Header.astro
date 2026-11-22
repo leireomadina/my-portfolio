@@ -32,23 +32,15 @@ import Menu from './Menu.astro'
 
 <style lang="scss">
 	.header {
-		padding: 3rem 1rem 1rem 1rem;
-
-		@include tablet {
-			padding-top: 2rem;
-		}
+		padding: fluid(48px, 32px, 320px, 680px) 1rem 1rem 1rem;
 
 		// Name + role on the left, menu on the right of the name's line
 		&__top {
 			// Size of the name and role text; the menu is centred on the name's line with it
-			--name-size: 1rem;
+			--name-size: #{$fluid-small-text};
 
 			display: grid;
 			grid-template-areas: 'top';
-
-			@include desktop {
-				--name-size: #{$fluid-small-text};
-			}
 		}
 
 		&__heading {
@@ -72,15 +64,9 @@ import Menu from './Menu.astro'
 			margin: 0;
 			font-weight: bold;
 			font-family: $font-title;
-			font-size: fluid-vw(11vw);
-
-			@include tablet {
-				font-size: 5rem;
-			}
-
-			@include desktop {
-				font-size: clamp(5rem, 4.5vw, 6rem);
-			}
+			// 11vw up to 5rem (~730px), then slowly up to 6rem on very wide screens (from ~1780px).
+			// The floor is its size on a 280px screen
+			font-size: clamp(1.925rem, 11vw, clamp(5rem, 4.5vw, 6rem));
 		}
 
 		&__subtitle {
@@ -95,10 +81,9 @@ import Menu from './Menu.astro'
 
 		&__headline {
 			display: block;
-			width: 100%;
 
 			@include desktop {
-				width: 70vw;
+				max-width: 70vw;
 			}
 
 			// Keeps "with intention" and "and care" on the same line

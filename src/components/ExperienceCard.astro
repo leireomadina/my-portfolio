@@ -65,11 +65,7 @@ const { id, title, company, url, projects, tags, date } = Astro.props
 		&__inner {
 			display: flex;
 			flex-direction: column;
-			gap: 0.5rem;
-
-			@include tablet {
-				gap: 2rem;
-			}
+			gap: fluid(8px, 32px, 320px, 680px);
 		}
 
 		&__number {
@@ -78,6 +74,8 @@ const { id, title, company, url, projects, tags, date } = Astro.props
 			font-family: $font-body-italic;
 		}
 
+		// Title and dates on one line only on desktop: with wrapping instead, cards at the
+		// same width would differ (dates beside short titles, below long ones)
 		&__top-container {
 			@include desktop {
 				display: flex;
@@ -97,16 +95,8 @@ const { id, title, company, url, projects, tags, date } = Astro.props
 			min-width: 0;
 			overflow-wrap: break-word;
 			font-family: $font-title;
-			font-size: fluid-vw(6vw);
+			font-size: fluid(19.2px, 64px);
 			color: $color-pink-dark;
-
-			@include tablet {
-				font-size: 2.5rem;
-			}
-
-			@include desktop {
-				font-size: 4rem;
-			}
 		}
 
 		&__subtitle {
@@ -116,17 +106,10 @@ const { id, title, company, url, projects, tags, date } = Astro.props
 
 		&__dates,
 		&__subtitle {
-			font-size: 1.25rem;
-
-			@include tablet {
-				font-size: 1.5rem;
-			}
-
-			@include desktop {
-				font-size: 2rem;
-			}
+			font-size: fluid(20px, 32px);
 		}
 
+		// Keeps lines readable on wide screens; narrower screens use the full card width
 		&__projects-list {
 			@include desktop {
 				max-width: 70%;
@@ -137,27 +120,15 @@ const { id, title, company, url, projects, tags, date } = Astro.props
 			display: flex;
 			align-items: center;
 			flex-wrap: wrap;
-			gap: 1rem;
-
-			@include desktop {
-				gap: 3rem;
-			}
+			gap: fluid(16px, 48px);
 
 			&.minimal-list {
-				margin-top: 1rem;
-
-				@include desktop {
-					margin-top: 2rem;
-				}
+				margin-top: fluid(16px, 32px);
 			}
 		}
 
 		&__list-item:not(:last-of-type) {
-			margin-bottom: 1rem;
-
-			@include desktop {
-				margin-bottom: 2rem;
-			}
+			margin-bottom: fluid(16px, 32px);
 		}
 	}
 </style>
