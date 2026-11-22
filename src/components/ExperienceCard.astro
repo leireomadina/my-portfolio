@@ -109,9 +109,11 @@ const { id, title, company, url, projects, tags, date } = Astro.props
 			font-size: fluid(20px, 32px);
 		}
 
-		// Keeps lines readable on wide screens: 70% of the card, but at least 45rem
+		// Keeps lines readable on wide screens; narrower screens use the full card width
 		&__projects-list {
-			max-width: max(45rem, 70%);
+			@include desktop {
+				max-width: 70%;
+			}
 		}
 
 		&__list {

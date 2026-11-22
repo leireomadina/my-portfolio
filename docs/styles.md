@@ -86,17 +86,22 @@ If the size shrinks instead (`$max` smaller than `$min`), the growth per pixel i
 - **Default range is 320px → 1180px** (small phone → desktop). Use another range only when a size should stop changing earlier, e.g. `fluid(24px, 32px, 680px, 1180px)` for body text that stays at 24px on phones.
 - **One value is often enough.** If the difference between screens doesn't matter visually, don't make it fluid.
 - **Small text** (name, role, desktop menu links) uses `fluid-small-text`: `max(1rem, 1.5vw)`. It is the user's base text size, and only grows on screens wider than about 1067px.
+- **Body text:** `fluid(24px, 32px, 680px, 1180px)` up to desktop. From `desktop` it is `clamp(2rem, 2vw, 2.5rem)`, so it keeps growing on very wide screens, up to 40px at 2000px.
 - **Headline:** `.header__title` uses `clamp(1.925rem, 11vw, clamp(5rem, 4.5vw, 6rem))`, so it fills small screens, stops at 5rem, and only grows again on very wide screens.
 
 ### Breakpoints that remain
 
-These change the layout, not a size, so they stay as media queries:
+These change the layout, or a value that isn't a straight line between two screen sizes, so they stay as media queries:
 
 | Where | Breakpoint | Why |
 |---|---|---|
 | `Menu.astro` | `tablet` / `only-mobile` (680px) | Hamburger and full-screen overlay below, inline links above |
 | `AboutMe.astro` | `desktop` (1180px) | Hand-placed 12-column grid |
+| `BaseLayout.astro` | `tablet` (680px) | Page padding: none on phones, so cards use the full width; `fluid(24px, 48px, 680px, 1180px)` from tablet up |
+| `BaseLayout.astro` | `desktop` (1180px) | Body text switches to `clamp(2rem, 2vw, 2.5rem)` (see above) |
+| `ExperienceCard.astro` | `desktop` (1180px) | Project list limited to 70% of the card for readable lines; full width below |
 | `ExperienceCard.astro` | `desktop` (1180px) | Title and dates on one line. With wrapping instead, cards at the same width would differ (dates beside short titles, below long ones) |
+| `Header.astro` | `desktop` (1180px) | Tagline limited to 70vw; full width below |
 | `Header.astro` | `only-small-mobile` (≤480px) | Line break after "with", so the tagline keeps three lines instead of leaving "products" alone |
 
 ## 6. Breakpoints

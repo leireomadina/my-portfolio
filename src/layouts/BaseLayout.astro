@@ -88,8 +88,17 @@ const personSchema = {
 		scroll-behavior: smooth;
 	}
 	body {
-		padding: fluid(0px, 48px);
 		font-family: $font-body;
 		font-size: fluid(24px, 32px, 680px, 1180px);
+
+		// No padding on phones, so cards use the full screen width
+		@include tablet {
+			padding: fluid(24px, 48px, 680px, 1180px);
+		}
+
+		// Text keeps growing on very wide screens, up to 2.5rem (40px) at 2000px
+		@include desktop {
+			font-size: clamp(2rem, 2vw, 2.5rem);
+		}
 	}
 </style>

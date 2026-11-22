@@ -81,8 +81,11 @@ import Menu from './Menu.astro'
 
 		&__headline {
 			display: block;
-			// 70vw on wide screens, but at least 52rem, so it fills the line on smaller ones
-			max-width: max(70vw, 52rem);
+
+			// Full width below desktop, so the tagline wraps as little as possible
+			@include desktop {
+				max-width: 70vw;
+			}
 
 			// Keeps "with intention" and "and care" on the same line
 			&--nowrap {
