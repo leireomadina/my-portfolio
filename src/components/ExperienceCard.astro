@@ -17,42 +17,41 @@ import Tag from './Tag.astro'
 const { id, title, company, url, projects, tags, date } = Astro.props
 ---
 
-<div class="card__inner">
-	{id && <p class="card__number">0{id}</p>}
+<div class="experience-card">
+	{id && <p class="experience-card__number">0{id}</p>}
 	<div>
-		<div class="card__top-container">
-			<h3 set:html={title} class="card__title" />
-			<span class="card__dates"
+		<div class="experience-card__top">
+			<h3 set:html={title} class="experience-card__title" />
+			<span class="experience-card__dates"
 				><time>{date.start}</time> - <time>{date.end}</time></span
 			>
 		</div>
-		<div style="display: flex; gap: 1rem;">
-			<span class="card__subtitle" style="display: inline-block;">
+		<div class="experience-card__company">
+			<span class="experience-card__subtitle">
 				{company === 'Freelance' ? 'as' : 'at'}</span
 			>
 			{
 				url ? (
-					<Link
-						href={url}
-						title={company}
-						isExternalLink
-						class="card__subtitle"
-					>
-						<h4 class="card__subtitle">{company}</h4>
+					<Link href={url} title={company} isExternalLink>
+						<h4 class="experience-card__subtitle">{company}</h4>
 					</Link>
 				) : (
-					<h4 class="card__subtitle">{company}</h4>
+					<h4 class="experience-card__subtitle">{company}</h4>
 				)
 			}
 		</div>
 	</div>
-	<ul class="card__projects-list">
-		{projects.map((project) => <li class="card__list-item">{project.text}</li>)}
+	<ul class="experience-card__projects">
+		{
+			projects.map((project) => (
+				<li class="experience-card__project">{project.text}</li>
+			))
+		}
 	</ul>
-	<ul class="card__list minimal-list">
+	<ul class="experience-card__tags">
 		{
 			tags.map((tag) => (
-				<li class="minimal-list">
+				<li>
 					<Tag text={tag.text} />
 				</li>
 			))
@@ -60,75 +59,76 @@ const { id, title, company, url, projects, tags, date } = Astro.props
 	</ul>
 </div>
 
-<style lang="scss">
-	.card {
-		&__inner {
+<style>
+	.experience-card {
+		display: flex;
+		flex-direction: column;
+		gap: clamp(0.5rem, 0.5rem + 24 * (100vw - 320px) / 360, 2rem);
+	}
+
+	.experience-card__number {
+		margin: 0;
+		font-size: 1.5rem;
+		font-family: var(--font-body-italic);
+	}
+
+	/* Title and dates on one line only on desktop: with wrapping instead, cards at the
+	same width would differ (dates beside short titles, below long ones) */
+	.experience-card__top {
+		@media (min-width: 1180px) {
 			display: flex;
-			flex-direction: column;
-			gap: fluid(8px, 32px, 320px, 680px);
+			justify-content: space-between;
+			align-items: flex-end;
+			gap: 1rem;
 		}
+	}
 
-		&__number {
-			margin: 0;
-			font-size: 1.5rem;
-			font-family: $font-body-italic;
+	.experience-card__title {
+		min-width: 0;
+		margin: 0;
+		overflow-wrap: break-word;
+		font-family: var(--font-title);
+		font-size: var(--text-xl);
+		font-weight: 400;
+		color: var(--color-accent);
+	}
+
+	/* The highlight comes from experience.json through set:html, so it isn't scoped */
+	.experience-card__title :global(.experience-card__highlight) {
+		font-family: var(--font-title-italic);
+	}
+
+	.experience-card__dates {
+		font-size: var(--text-m);
+	}
+
+	.experience-card__company {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.experience-card__subtitle {
+		margin: 0 0 2rem 0;
+		font-size: var(--text-m);
+		font-weight: 400;
+	}
+
+	/* Keeps lines readable on wide screens */
+	.experience-card__projects {
+		@media (min-width: 1180px) {
+			max-width: 70%;
 		}
+	}
 
-		// Title and dates on one line only on desktop: with wrapping instead, cards at the
-		// same width would differ (dates beside short titles, below long ones)
-		&__top-container {
-			@include desktop {
-				display: flex;
-				justify-content: space-between;
-				align-items: flex-end;
-				gap: 1rem;
-			}
-		}
+	.experience-card__project:not(:last-of-type) {
+		margin-bottom: clamp(1rem, 1rem + 16 * (100vw - 320px) / 860, 2rem);
+	}
 
-		&__title,
-		&__text {
-			margin: 0;
-			font-weight: 400;
-		}
-
-		&__title {
-			min-width: 0;
-			overflow-wrap: break-word;
-			font-family: $font-title;
-			font-size: fluid(19.2px, 64px);
-			color: $color-pink-dark;
-		}
-
-		&__subtitle {
-			margin: 0rem 0 2rem 0;
-			font-weight: 400;
-		}
-
-		&__dates,
-		&__subtitle {
-			font-size: fluid(20px, 32px);
-		}
-
-		// Keeps lines readable on wide screens; narrower screens use the full card width
-		&__projects-list {
-			@include desktop {
-				max-width: 70%;
-			}
-		}
-
-		&__list {
-			display: flex;
-			align-items: center;
-			flex-wrap: wrap;
-			gap: fluid(16px, 48px);
-
-			&.minimal-list {
-				margin-top: fluid(16px, 32px);
-			}
-		}
-
-		&__list-item:not(:last-of-type) {
-			margin-bottom: fluid(16px, 32px);
-		}
+	.experience-card__tags {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: clamp(1rem, 1rem + 32 * (100vw - 320px) / 860, 3rem);
+		margin-top: clamp(1rem, 1rem + 16 * (100vw - 320px) / 860, 2rem);
 	}
 </style>

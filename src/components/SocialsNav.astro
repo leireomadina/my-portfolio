@@ -4,16 +4,16 @@ import Link from './Link.astro'
 import { links } from '@data/socials.json'
 ---
 
-<nav>
+<nav class="socials-nav">
 	<ul>
 		{
 			links.map(({ text, href, title, isExternalLink }) => (
-				<li>
+				<li class="socials-nav__item">
 					<Link
 						href={href}
 						title={title}
 						isExternalLink={isExternalLink}
-						class="socials__link"
+						class="socials-nav__link"
 					>
 						{text}
 						<ArrowIcon />
@@ -24,25 +24,26 @@ import { links } from '@data/socials.json'
 	</ul>
 </nav>
 
-<style lang="scss">
-	li {
+<style>
+	.socials-nav__item {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: toRem(4px);
-		border-bottom: 2px solid $color-green-dark;
+		padding: 0.25rem;
+		border-bottom: 2px solid var(--color-link);
+	}
 
-		&:not(li) {
-			margin-bottom: 0.5rem;
-		}
+	/* The <a> and the icon are rendered by other components, so they need :global */
+	.socials-nav__item :global(.socials-nav__link) {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		text-decoration: none;
+	}
 
-		p {
-			margin: 0;
-		}
-
-		:global(svg.icon) {
-			width: 48px;
-			height: 48px;
-		}
+	.socials-nav__item :global(svg.icon) {
+		width: 48px;
+		height: 48px;
 	}
 </style>

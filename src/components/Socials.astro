@@ -16,26 +16,26 @@ import myPhoto from '@assets/images/leire.jpg'
 	/>
 </article>
 
-<style lang="scss">
+<style>
 	.socials {
 		margin-top: 1.5rem;
+	}
 
-		&__image {
-			max-width: 50%;
-			width: 100%;
-			height: auto;
-			margin-top: 1.5rem;
-			margin-left: 50%;
+	.socials__image {
+		max-width: 50%;
+		width: 100%;
+		height: auto;
+		margin-top: 1.5rem;
+		margin-left: 50%;
+	}
 
-			@supports (animation-timeline: view()) {
-				& {
-					scale: 0.8;
-					opacity: 0;
-					animation: fade-in ease-out forwards;
-					animation-timeline: view();
-					animation-range: 0 300px;
-				}
-			}
+	@supports (animation-timeline: view()) {
+		.socials__image {
+			scale: 0.8;
+			opacity: 0;
+			animation: fade-in ease-out forwards;
+			animation-timeline: view();
+			animation-range: 0 300px;
 		}
 	}
 

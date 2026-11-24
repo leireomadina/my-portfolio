@@ -11,14 +11,12 @@ const { id, class: className } = Astro.props
 	<slot />
 </section>
 
-<style lang="scss">
-	.section {
-		&:not(:last-of-type) {
-			margin-bottom: 3rem;
-		}
+<style>
+	.section:not(:last-of-type) {
+		margin-bottom: 3rem;
+	}
 
-		&:not(:first-of-type) {
-			margin-top: 3rem;
-		}
+	.section:not(:first-of-type) {
+		margin-top: 3rem;
 	}
 </style>

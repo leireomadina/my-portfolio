@@ -18,92 +18,92 @@ import Menu from './Menu.astro'
 	<p class="header__title">
 		<span class="header__headline">
 			I build digital products{' '}
-			<span class="header__headline--nowrap">
-				with<br class="header__headline--break" />{' '}
-				<span class="header__headline--highlighted">intention</span>
+			<span class="header__phrase">
+				with<br class="header__break" />{' '}
+				<span class="header__highlight">intention</span>
 			</span>{' '}
-			<span class="header__headline--nowrap">
+			<span class="header__phrase">
 				and{' '}
-				<span class="header__headline--highlighted">care</span>
+				<span class="header__highlight">care</span>
 			</span>
 		</span>
 	</p>
 </header>
 
-<style lang="scss">
+<style>
 	.header {
-		padding: fluid(48px, 32px, 320px, 680px) 1rem 1rem 1rem;
+		padding: clamp(2rem, 3rem - 16 * (100vw - 320px) / 360, 3rem) 1rem 1rem;
+	}
 
-		// Name + role on the left, menu on the right of the name's line
-		&__top {
-			// Size of the name and role text; the menu is centred on the name's line with it
-			--name-size: #{$fluid-small-text};
+	/* Name and menu share one grid cell, so the menu sits on the name's line without a fixed height */
+	.header__top {
+		/* Size of the name and role text; the menu is centred on the name's line with it */
+		--name-size: var(--text-xs);
 
-			display: grid;
-			grid-template-areas: 'top';
+		display: grid;
+		grid-template-areas: 'top';
+	}
+
+	.header__heading {
+		grid-area: top;
+		margin: 0.67em 0 1rem;
+		font-size: var(--name-size);
+		line-height: 1.15;
+	}
+
+	.header__menu {
+		grid-area: top;
+		justify-self: end;
+		display: flex;
+		align-items: center;
+		/* Same box as the name's line, so the menu is centred on it */
+		height: calc(1.15 * var(--name-size));
+		margin-top: calc(0.67 * var(--name-size));
+	}
+
+	.header__title {
+		margin: 0;
+		font-weight: bold;
+		font-family: var(--font-title);
+		/* 11vw up to 5rem (~730px), then slowly up to 6rem on very wide screens (from ~1780px).
+		The floor is its size on a 280px screen */
+		font-size: clamp(1.925rem, 11vw, clamp(5rem, 4.5vw, 6rem));
+	}
+
+	.header__subtitle {
+		display: block;
+		font-family: var(--font-title-italic);
+	}
+
+	.header__role {
+		display: block;
+		margin-top: 1.5em;
+	}
+
+	.header__headline {
+		display: block;
+
+		@media (min-width: 1180px) {
+			max-width: 70vw;
 		}
+	}
 
-		&__heading {
-			grid-area: top;
-			margin: 0.67em 0 1rem;
-			font-size: var(--name-size);
-			line-height: 1.15;
+	/* Keeps "with intention" and "and care" on the same line */
+	.header__phrase {
+		white-space: nowrap;
+	}
+
+	/* Keeps the tagline at three lines on small phones, instead of leaving "products" alone */
+	.header__break {
+		display: none;
+
+		@media (max-width: 480px) {
+			display: inline;
 		}
+	}
 
-		&__menu {
-			grid-area: top;
-			justify-self: end;
-			display: flex;
-			align-items: center;
-			// Same box as the name's line, so the menu is centred on it
-			height: calc(1.15 * var(--name-size));
-			margin-top: calc(0.67 * var(--name-size));
-		}
-
-		&__title {
-			margin: 0;
-			font-weight: bold;
-			font-family: $font-title;
-			// 11vw up to 5rem (~730px), then slowly up to 6rem on very wide screens (from ~1780px).
-			// The floor is its size on a 280px screen
-			font-size: clamp(1.925rem, 11vw, clamp(5rem, 4.5vw, 6rem));
-		}
-
-		&__subtitle {
-			display: block;
-			font-family: $font-title-italic;
-		}
-
-		&__role {
-			display: block;
-			margin-top: 1.5em;
-		}
-
-		&__headline {
-			display: block;
-
-			@include desktop {
-				max-width: 70vw;
-			}
-
-			// Keeps "with intention" and "and care" on the same line
-			&--nowrap {
-				white-space: nowrap;
-			}
-
-			// Small phones only: line break after "with"
-			&--break {
-				display: none;
-
-				@include only-small-mobile {
-					display: inline;
-				}
-			}
-
-			&--highlighted {
-				font-family: $font-title-italic;
-				color: $color-pink-dark;
-			}
-		}
+	.header__highlight {
+		font-family: var(--font-title-italic);
+		color: var(--color-accent);
 	}
 </style>

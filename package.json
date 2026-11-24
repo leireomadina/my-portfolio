@@ -10,13 +10,12 @@
 		"check": "pnpm astro check",
 		"test": "vitest",
 		"lint:fix": "eslint . --fix",
-		"format": "prettier --write \"**/*.{js,jsx,astro,ts,cjs,mjs,scss,json,md}\""
+		"format": "prettier --write \"**/*.{js,jsx,astro,ts,cjs,mjs,css,json,md}\""
 	},
 	"dependencies": {
 		"@astrojs/sitemap": "^3.7.3",
 		"@astrojs/vercel": "^11.0.8",
-		"astro": "^7.2.8",
-		"sass": "^1.103.1"
+		"astro": "^7.2.8"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.10",

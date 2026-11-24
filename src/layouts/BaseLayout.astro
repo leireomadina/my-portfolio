@@ -1,5 +1,5 @@
 ---
-import '../styles/globals.scss'
+import '../styles/globals.css'
 import { person } from '@data/person.json'
 import { links as socialLinks } from '@data/socials.json'
 
@@ -83,19 +83,20 @@ const personSchema = {
 	</body>
 </html>
 
-<style lang="scss">
+<style>
 	html {
 		scroll-behavior: smooth;
 	}
-	body {
-		font-family: $font-body;
-		font-size: fluid(24px, 32px, 680px, 1180px);
 
-		@include tablet {
-			padding: fluid(24px, 48px, 680px, 1180px);
+	body {
+		font-family: var(--font-body);
+		font-size: var(--text-l);
+
+		@media (min-width: 680px) {
+			padding: clamp(1.5rem, 1.5rem + 24 * (100vw - 680px) / 500, 3rem);
 		}
 
-		@include desktop {
+		@media (min-width: 1180px) {
 			font-size: clamp(2rem, 2vw, 2.5rem);
 		}
 	}

@@ -1,0 +1,33 @@
+/*
+ * Light and dark theme. Each theme only sets the role colours below; components
+ * use these and never mention the theme. ThemeToggler.astro adds the `dark`
+ * class to <html>.
+ */
+
+html {
+	--color-bg: var(--color-light);
+	--color-text: var(--color-dark);
+	--color-link: var(--color-green-dark);
+	--color-accent: var(--color-pink-dark);
+	--color-border: var(--color-grey);
+
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	transition:
+		background-color 0.25s ease-out,
+		color 0.25s ease-out;
+}
+
+html.dark {
+	--color-bg: var(--color-dark);
+	--color-text: var(--color-light);
+	--color-link: var(--color-green-lighter);
+	--color-accent: var(--color-pink-light);
+	--color-border: var(--color-lighter-grey);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		transition: none;
+	}
+}

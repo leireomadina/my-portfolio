@@ -5,12 +5,12 @@ import Card from '@components/Card.astro'
 import { projects } from '@data/projects.json'
 ---
 
-<Section id="projects" class="projects">
+<Section id="projects">
 	<Wrapper>
-		<ul class="minimal-list">
+		<ul class="projects__list">
 			{
 				projects.map(({ id, title, text, tags, links }) => (
-					<li>
+					<li class="projects__item">
 						<Card id={id} title={title} text={text} tags={tags} links={links} />
 					</li>
 				))
@@ -19,8 +19,8 @@ import { projects } from '@data/projects.json'
 	</Wrapper>
 </Section>
 
-<style lang="scss">
-	ul :first-child {
-		border-top: 1px solid $color-dark;
+<style>
+	.projects__item:first-child {
+		border-top: 1px solid var(--color-border);
 	}
 </style>
