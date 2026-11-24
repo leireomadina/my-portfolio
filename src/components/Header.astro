@@ -17,11 +17,8 @@ import Menu from './Menu.astro'
 	</div>
 	<p class="header__title">
 		<span class="header__headline">
-			I build digital products{' '}
-			<span class="header__phrase">
-				with<br class="header__break" />{' '}
-				<span class="header__highlight">intention</span>
-			</span>{' '}
+			I build digital products with<br class="header__break" />{' '}
+			<span class="header__highlight">intention</span>{' '}
 			<span class="header__phrase">
 				and{' '}
 				<span class="header__highlight">care</span>
@@ -82,13 +79,10 @@ import Menu from './Menu.astro'
 
 	.header__headline {
 		display: block;
-
-		@media (min-width: 1180px) {
-			max-width: 70vw;
-		}
+		max-width: 12.5em;
 	}
 
-	/* Keeps "with intention" and "and care" on the same line */
+	/* Keeps "and care" on the same line */
 	.header__phrase {
 		white-space: nowrap;
 	}

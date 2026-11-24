@@ -112,7 +112,6 @@ These change the layout, or a value that isn't a straight line between two scree
 | `BaseLayout.astro` | 1180px | Body text switches to `clamp(2rem, 2vw, 2.5rem)` (see above) |
 | `ExperienceCard.astro` | 1180px | Project list limited to 70% of the card for readable lines; full width below |
 | `ExperienceCard.astro` | 1180px | Title and dates on one line. With wrapping instead, cards at the same width would differ (dates beside short titles, below long ones) |
-| `Header.astro` | 1180px | Tagline limited to 70vw; full width below |
 | `Header.astro` | up to 480px | Line break after "with", so the tagline keeps three lines instead of leaving "products" alone |
 
 ## 6. Breakpoints
