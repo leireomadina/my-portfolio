@@ -1,7 +1,7 @@
 /*
  * Light and dark theme. Each theme only sets the role colours below; components
- * use these and never mention the theme. ThemeToggler.astro adds the `dark`
- * class to <html>.
+ * use these and never mention the theme. The `dark` class on <html> is set by
+ * BaseLayout's <head> script and switched by ThemeToggler.astro.
  */
 
 html {

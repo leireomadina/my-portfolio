@@ -6,7 +6,8 @@ interface Props {
 	isExternalLink?: boolean
 }
 
-const { href, title, isExternalLink, class: className } = Astro.props
+// `...rest` passes the parent's scope attribute, so the parent can style this link
+const { href, title, isExternalLink, class: className, ...rest } = Astro.props
 ---
 
 <a
@@ -15,6 +16,7 @@ const { href, title, isExternalLink, class: className } = Astro.props
 	class:list={['link', className]}
 	target={isExternalLink ? '_blank' : '_self'}
 	rel={isExternalLink ? 'noopener noreferrer' : null}
+	{...rest}
 >
 	<slot /></a
 >

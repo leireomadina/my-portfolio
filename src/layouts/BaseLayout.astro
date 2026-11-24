@@ -73,6 +73,16 @@ const personSchema = {
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
+		<!-- Sets the theme before the first paint, so dark mode doesn't flash light first.
+		Same storage key and values as ThemeToggler.astro -->
+		<script is:inline>
+			const savedColourMode = localStorage.getItem('COLOUR_MODE')
+			const isDarkTheme = savedColourMode
+				? savedColourMode !== 'LIGHT'
+				: matchMedia('(prefers-color-scheme: dark)').matches
+			if (isDarkTheme) document.documentElement.classList.add('dark')
+		</script>
+
 		<script
 			type="application/ld+json"
 			set:html={JSON.stringify(personSchema)}
@@ -85,7 +95,9 @@ const personSchema = {
 
 <style>
 	html {
-		scroll-behavior: smooth;
+		@media (prefers-reduced-motion: no-preference) {
+			scroll-behavior: smooth;
+		}
 	}
 
 	body {

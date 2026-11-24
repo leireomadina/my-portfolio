@@ -56,7 +56,7 @@ All tokens are in `src/styles/base/tokens.css`.
 | `--color-accent` | `--color-pink-dark` | `--color-pink-light` | Headline highlights, About numbers, experience titles |
 | `--color-border` | `--color-grey` | `--color-lighter-grey` | Card and list lines |
 
-- `ThemeToggler.astro` adds the `dark` class to `<html>`. The dark theme only redefines the role colours on `html.dark`, so **components never mention the theme**. The one exception is the toggle itself, which shows the sun or the moon.
+- An inline script in `BaseLayout`'s `<head>` adds the `dark` class to `<html>` before the first paint (so dark mode doesn't flash light), and `ThemeToggler.astro` switches it. The dark theme only redefines the role colours on `html.dark`, so **components never mention the theme**. The one exception is the toggle itself, which shows the sun or the moon.
 - **Icons** use `stroke="currentColor"`, so they take the colour of the link around them.
 - **New colour need?** Use an existing role. If none fits, add a role in `themes.css` with a value for both themes.
 - The theme change fades `background-color` and `color` (0.25s), and doesn't fade with reduced motion.
@@ -95,7 +95,7 @@ To change it, change the design numbers: the start size, how much it grows (32 �
 
 ### Rules
 
-- **Text uses a token.** Add a step to the scale only when no existing one is close enough.
+- **Text that changes with the screen uses a token.** Add a step to the scale only when no existing one is close enough. A size that stays the same at every width (e.g. the mobile menu links at `2rem`) can be a plain `rem` value in the component.
 - **Spacing** used only once (paddings, gaps, margins) is written in place with the same `clamp()` shape.
 - **Always keep `rem` ends.** A size in plain `vw` ignores the user's browser text size.
 - **One value is often enough.** If the difference between screens doesn't matter visually, don't make it fluid.
@@ -162,7 +162,8 @@ The build lowers it for older browsers. Don't nest one class inside another: wri
 
 ### Patterns
 
-- **Styling a child component's element:** Astro's scoped styles don't reach into another component. Wrap the child in an element of your own block and use `:global()` for the child's part: `.socials-nav__item :global(.socials-nav__link)`, `.menu__list :global(a)`.
+- **Styling a child component:** Astro's scoped styles don't reach into another component, so pass it a class of your own block: `<Link class="menu__link">`, `<ArrowIcon class="socials-nav__icon" />`, and style `.menu__link` as usual. The child accepts `class` and spreads `...rest` on its root element: `...rest` carries the parent's scope attribute, without which the parent's styles can't reach it (see [Astro: passing a class to a child component](https://docs.astro.build/en/guides/styling/#passing-a-class-to-a-child-component)). `Link` and the icons already do this.
+- **`:global()`** is only for HTML that isn't a component you can pass a class to: content from `set:html` (below) and page-level rules like `Menu.astro`'s `html:has(...)` scroll lock.
 - **HTML from data (`set:html`):** it isn't scoped either. Style it from the component that renders it: `ExperienceCard` styles `.experience-card__title :global(.experience-card__highlight)`, the class used in `experience.json`.
 - **Shared shells:** `BaseCard` owns the `base-card` block (padding and line). The content inside gets its own block (`experience-card`), so the two never fight over the same class. Every block matches its file name: `BaseCard` → `base-card`, `Card` → `card`, `ExperienceCard` → `experience-card`.
 

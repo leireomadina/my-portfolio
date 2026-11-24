@@ -14,7 +14,7 @@ import { links } from '@data/menu.json'
 		{
 			links.map(({ text, href, title }) => (
 				<li>
-					<Link href={href} title={title}>
+					<Link href={href} title={title} class="menu__link">
 						{text}
 					</Link>
 				</li>
@@ -134,8 +134,7 @@ import { links } from '@data/menu.json'
 		transition-duration: 0.25s, 0s;
 	}
 
-	/* The <a> is rendered by Link.astro (which sets the colour), so it needs :global to be reached from here */
-	.menu__list :global(a) {
+	.menu__link {
 		font-size: 2rem;
 		text-decoration: none;
 

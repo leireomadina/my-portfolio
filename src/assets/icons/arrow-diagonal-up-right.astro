@@ -1,5 +1,15 @@
+---
+interface Props {
+	class?: string
+}
+
+// `...rest` passes the parent's scope attribute, so the parent can style this icon
+const { class: className, ...rest } = Astro.props
+---
+
 <svg
-	class="icon"
+	class={className}
+	{...rest}
 	viewBox="0 0 24 24"
 	xmlns="http://www.w3.org/2000/svg"
 	fill="none"

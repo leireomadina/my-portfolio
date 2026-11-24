@@ -16,7 +16,7 @@ import { links } from '@data/socials.json'
 						class="socials-nav__link"
 					>
 						{text}
-						<ArrowIcon />
+						<ArrowIcon class="socials-nav__icon" />
 					</Link>
 				</li>
 			))
@@ -33,8 +33,7 @@ import { links } from '@data/socials.json'
 		border-bottom: 2px solid var(--color-link);
 	}
 
-	/* The <a> and the icon are rendered by other components, so they need :global */
-	.socials-nav__item :global(.socials-nav__link) {
+	.socials-nav__link {
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
@@ -42,7 +41,7 @@ import { links } from '@data/socials.json'
 		text-decoration: none;
 	}
 
-	.socials-nav__item :global(svg.icon) {
+	.socials-nav__icon {
 		width: 48px;
 		height: 48px;
 	}
