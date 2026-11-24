@@ -7,11 +7,11 @@ import { projects } from '@data/otherProjects.json'
 
 <Section>
 	<Wrapper>
-		<h2>Other projects</h2>
+		<h2 class="other-projects__title">Other projects</h2>
 		<ul>
 			{
 				projects.map(({ title, tags, links }) => (
-					<li>
+					<li class="other-projects__item">
 						<Card title={title} tags={tags} links={links} />
 					</li>
 				))
@@ -20,15 +20,15 @@ import { projects } from '@data/otherProjects.json'
 	</Wrapper>
 </Section>
 
-<style lang="scss">
-	h2 {
+<style>
+	.other-projects__title {
 		margin-top: 0;
 		margin-bottom: 2rem;
-		font-family: 'Playfair Display Bold';
+		font-family: var(--font-title);
 		font-size: 1.5rem;
 	}
 
-	li:not(:last-of-type) {
+	.other-projects__item:not(:last-of-type) {
 		margin-bottom: 1rem;
 	}
 </style>

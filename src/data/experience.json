@@ -2,7 +2,7 @@
 	"experience": [
 		{
 			"id": 1,
-			"title": "Software <i class='card__title--highlighted'>developer</i> &amp; UX/UI <i class='card__title--highlighted'>designer</i>",
+			"title": "Software <i class='experience-card__highlight'>developer</i> &amp; UX/UI <i class='experience-card__highlight'>designer</i>",
 			"company": "Kaytek",
 			"url": "https://www.kaytek.es/",
 			"date": {
@@ -52,7 +52,7 @@
 		},
 		{
 			"id": 2,
-			"title": "Full-stack <i class='card__title--highlighted'>developer</i>",
+			"title": "Full-stack <i class='experience-card__highlight'>developer</i>",
 			"company": "Zorraquino",
 			"url": "https://www.zorraquino.com/",
 			"date": {
@@ -102,7 +102,7 @@
 		},
 		{
 			"id": 3,
-			"title": "Graphic & web <i class='card__title--highlighted'>designer</i>",
+			"title": "Graphic & web <i class='experience-card__highlight'>designer</i>",
 			"company": "Freelance",
 			"date": {
 				"start": "2018",
@@ -143,7 +143,7 @@
 		},
 		{
 			"id": 4,
-			"title": "Technical <i class='card__title--highlighted'>architect</i>",
+			"title": "Technical <i class='experience-card__highlight'>architect</i>",
 			"company": "ATPO, Mendieta, EKIS",
 			"date": {
 				"start": "2014",

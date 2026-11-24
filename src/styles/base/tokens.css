@@ -1,0 +1,45 @@
+/*
+ * Design tokens: fonts, colours and text sizes.
+ * Colours are named by hue. Components use the role colours from themes.css
+ * (--color-text, --color-accent…), which point to these.
+ * See docs/styles.md for how to use and add tokens.
+ */
+
+:root {
+	/* Fonts */
+	--font-title: 'Da Vinci Regular';
+	--font-title-italic: 'Da Vinci Italic';
+	--font-body: 'Inter Light';
+	--font-body-italic: 'Inter Light Italic';
+	--font-body-regular: 'Inter Regular';
+	--font-body-bold: 'Inter SemiBold';
+
+	/* Colours: brand */
+	--color-green-lighter: #9bdd9b;
+	--color-green-light: #87cc87;
+	--color-green-dark: #46ac6c;
+	--color-pink-light: #fec8c8;
+	--color-pink-dark: #d46072;
+	--color-light: #f2f2f2;
+	--color-dark: #292829;
+
+	/* Colours: neutral */
+	--color-white: #fff;
+	--color-grey: #878787;
+	--color-light-grey: #bcbcbc;
+	--color-lighter-grey: #ccc;
+
+	/* Text sizes. How to read and change them: "Fluid sizing" in docs/styles.md */
+	/* 16px; only grows on screens wider than ~1067px: name, role, desktop menu */
+	--text-xs: max(1rem, 1.5vw);
+	/* 16px → 24px (320px → 1180px screens): tags */
+	--text-s: clamp(1rem, 1rem + 8 * (100vw - 320px) / 860, 1.5rem);
+	/* 20px → 32px (320px → 1180px screens): dates, company */
+	--text-m: clamp(1.25rem, 1.25rem + 12 * (100vw - 320px) / 860, 2rem);
+	/* 24px → 32px (680px → 1180px screens): body text, About titles */
+	--text-l: clamp(1.5rem, 1.5rem + 8 * (100vw - 680px) / 500, 2rem);
+	/* 19.2px → 64px (320px → 1180px screens): experience titles */
+	--text-xl: clamp(1.2rem, 1.2rem + 44.8 * (100vw - 320px) / 860, 4rem);
+	/* 25.6px → 80px (320px → 1180px screens): About numbers and specialities */
+	--text-2xl: clamp(1.6rem, 1.6rem + 54.4 * (100vw - 320px) / 860, 5rem);
+}

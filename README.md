@@ -16,7 +16,7 @@ Astro has proven to be a remarkable discovery, and the development experience ha
 
 ### Styling
 
-- **SASS (SCSS)** with a global design system: variables, mixins and utility functions auto-injected into every component.
+- **Plain CSS** with scoped component styles, BEM class names and design tokens as custom properties (fonts, colours, fluid text sizes), with light and dark themes. See [docs/styles.md](docs/styles.md).
 
 ### Tooling
 

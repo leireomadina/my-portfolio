@@ -10,12 +10,10 @@ const { text } = Astro.props
 	<p class="tag__text">{text}</p>
 </div>
 
-<style lang="scss">
-	.tag {
-		&__text {
-			margin: 0;
-			font-size: fluid(16px, 24px);
-			font-family: $font-title-italic;
-		}
+<style>
+	.tag__text {
+		margin: 0;
+		font-size: var(--text-s);
+		font-family: var(--font-title-italic);
 	}
 </style>

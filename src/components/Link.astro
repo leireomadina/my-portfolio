@@ -6,38 +6,25 @@ interface Props {
 	isExternalLink?: boolean
 }
 
-const { href, title, isExternalLink, class: className } = Astro.props
+// `...rest` passes the parent's scope attribute, so the parent can style this link
+const { href, title, isExternalLink, class: className, ...rest } = Astro.props
 ---
 
 <a
 	href={href}
 	title={title}
-	class={className}
+	class:list={['link', className]}
 	target={isExternalLink ? '_blank' : '_self'}
 	rel={isExternalLink ? 'noopener noreferrer' : null}
+	{...rest}
 >
 	<slot /></a
 >
 
-<style lang="scss">
-	a,
-	a:visited {
-		font-family: $font-body-regular;
-		color: $color-green-dark;
-	}
-
-	.socials__link {
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		text-decoration: none;
-
-		&[href='#projects'],
-		&[href='#experience'] {
-			:global(svg) {
-				transform: rotate(180deg);
-			}
-		}
+<style>
+	.link,
+	.link:visited {
+		font-family: var(--font-body-regular);
+		color: var(--color-link);
 	}
 </style>

@@ -9,12 +9,12 @@ import { links } from '@data/menu.json'
 	- desktop: links, then the slotted controls (theme toggle); hamburger hidden
 	- mobile: links live in the overlay; slotted controls, then the hamburger in the corner */
 }
-<nav class="menu-nav" aria-label="Main">
-	<ul class="menu" id="main-menu">
+<nav class="menu" aria-label="Main">
+	<ul class="menu__list" id="main-menu">
 		{
 			links.map(({ text, href, title }) => (
 				<li>
-					<Link href={href} title={title}>
+					<Link href={href} title={title} class="menu__link">
 						{text}
 					</Link>
 				</li>
@@ -23,40 +23,40 @@ import { links } from '@data/menu.json'
 	</ul>
 	<slot />
 	<button
-		class="menu-toggle"
+		class="menu__toggle"
 		type="button"
 		aria-expanded="false"
 		aria-controls="main-menu"
 		aria-label="Menu"
 	>
-		<span class="menu-toggle__bar" aria-hidden="true"></span>
-		<span class="menu-toggle__bar" aria-hidden="true"></span>
-		<span class="menu-toggle__bar" aria-hidden="true"></span>
+		<span class="menu__bar" aria-hidden="true"></span>
+		<span class="menu__bar" aria-hidden="true"></span>
+		<span class="menu__bar" aria-hidden="true"></span>
 	</button>
 </nav>
 
-<style lang="scss">
-	$bar-height: 2px;
-	$bar-gap: 6px;
-
-	.menu-nav {
+<style>
+	.menu {
 		display: flex;
 		align-items: center;
-		gap: 1.5rem; // mobile: between the theme toggle and the hamburger
-		visibility: visible; // stays reachable while the open menu hides the page
+		gap: 1.5rem;
+		visibility: visible; /* stays reachable while the open menu hides the page */
 
-		@include tablet {
-			gap: 3rem; // desktop: between the links and the theme toggle
+		@media (min-width: 680px) {
+			gap: 3rem;
 		}
 	}
 
-	.menu-toggle {
+	.menu__toggle {
+		--bar-height: 2px;
+		--bar-gap: 6px;
+
 		position: relative;
 		z-index: 2;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		gap: $bar-gap;
+		gap: var(--bar-gap);
 		width: 28px;
 		height: 28px;
 		padding: 0;
@@ -65,39 +65,39 @@ import { links } from '@data/menu.json'
 		color: inherit;
 		cursor: pointer;
 
-		@include tablet {
+		@media (min-width: 680px) {
 			display: none;
-		}
-
-		&__bar {
-			display: block;
-			width: 100%;
-			height: $bar-height;
-			border-radius: $bar-height;
-			background-color: currentColor;
-			transition:
-				transform 0.25s ease-out,
-				opacity 0.25s ease-out;
-		}
-
-		// Morph the three bars into an X
-		&[aria-expanded='true'] &__bar {
-			&:nth-child(1) {
-				transform: translateY($bar-height + $bar-gap) rotate(45deg);
-			}
-
-			&:nth-child(2) {
-				opacity: 0;
-			}
-
-			&:nth-child(3) {
-				transform: translateY(-($bar-height + $bar-gap)) rotate(-45deg);
-			}
 		}
 	}
 
-	.menu {
-		// Mobile: full-screen overlay, hidden until the toggle opens it
+	.menu__bar {
+		display: block;
+		width: 100%;
+		height: var(--bar-height);
+		border-radius: var(--bar-height);
+		background-color: currentColor;
+		transition:
+			transform 0.25s ease-out,
+			opacity 0.25s ease-out;
+	}
+
+	/* Morph the three bars into an X */
+	.menu__toggle[aria-expanded='true'] .menu__bar:nth-child(1) {
+		transform: translateY(calc(var(--bar-height) + var(--bar-gap)))
+			rotate(45deg);
+	}
+
+	.menu__toggle[aria-expanded='true'] .menu__bar:nth-child(2) {
+		opacity: 0;
+	}
+
+	.menu__toggle[aria-expanded='true'] .menu__bar:nth-child(3) {
+		transform: translateY(calc(-1 * (var(--bar-height) + var(--bar-gap))))
+			rotate(-45deg);
+	}
+
+	.menu__list {
+		/* Mobile: full-screen overlay, hidden until the toggle opens it */
 		position: fixed;
 		inset: 0;
 		z-index: 1;
@@ -107,35 +107,14 @@ import { links } from '@data/menu.json'
 		justify-content: center;
 		gap: 2rem;
 		margin: 0;
-		background-color: var(
-			--color-bg
-		); // page background per theme (_themes.scss)
+		background-color: var(--color-bg);
 		opacity: 0;
 		visibility: hidden;
 		transition:
 			opacity 0.25s ease-out,
 			visibility 0.25s ease-out;
 
-		// The toggle's aria-expanded is the single source of truth for the open state
-		.menu-nav:has(.menu-toggle[aria-expanded='true']) & {
-			opacity: 1;
-			visibility: visible;
-			// opacity, visibility: visible instantly on open (so the first link can take
-			// focus right away). Only durations change, so reduced motion's `none` still wins
-			transition-duration: 0.25s, 0s;
-		}
-
-		// The <a> is rendered by Link.astro (which sets the colour), so it needs :global to be reached from here
-		:global(a) {
-			font-size: 2rem;
-			text-decoration: none;
-
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-
-		@include tablet {
+		@media (min-width: 680px) {
 			position: static;
 			flex-direction: row;
 			gap: 1.5rem;
@@ -143,54 +122,73 @@ import { links } from '@data/menu.json'
 			opacity: 1;
 			visibility: visible;
 			transition: none;
+		}
+	}
 
-			:global(a) {
-				@include fluid-small-text;
-			}
+	/* The toggle's aria-expanded is the single source of truth for the open state */
+	.menu:has(.menu__toggle[aria-expanded='true']) .menu__list {
+		opacity: 1;
+		visibility: visible;
+		/* opacity, visibility: visible instantly on open (so the first link can take
+		focus right away). Only durations change, so reduced motion's `none` still wins */
+		transition-duration: 0.25s, 0s;
+	}
+
+	.menu__link {
+		font-size: 2rem;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		@media (min-width: 680px) {
+			font-size: var(--text-xs);
 		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.menu,
-		.menu-toggle__bar {
+		.menu__list,
+		.menu__bar {
 			transition: none;
 		}
 	}
 
-	// Overlay effects only exist below tablet, so if the window grows to desktop
-	// while the menu is open, nothing stays locked or hidden (no resize JS needed)
-	@include only-mobile {
-		// Lock page scroll behind the open overlay
-		:global(html:has(.menu-toggle[aria-expanded='true'])) {
+	/* Overlay effects only exist below tablet, so if the window grows to desktop
+	while the menu is open, nothing stays locked or hidden (no resize JS needed).
+	`not all and (min-width)` instead of `max-width: 679px`: no gap or overlap at 680px */
+	@media not all and (min-width: 680px) {
+		/* Lock page scroll behind the open overlay */
+		:global(html:has(.menu__toggle[aria-expanded='true'])) {
 			overflow: hidden;
 		}
 
-		// While open, hide the page behind the overlay so Tab and screen readers stay
-		// in the menu (no JS needed). The delay lets the overlay fade in first.
-		:global(body:has(.menu-toggle[aria-expanded='true'])) {
+		/* While open, hide the page behind the overlay so Tab and screen readers stay
+		in the menu (no JS needed). The delay lets the overlay fade in first. */
+		:global(body:has(.menu__toggle[aria-expanded='true'])) {
 			visibility: hidden;
 			transition: visibility 0s 0.25s;
 		}
 
-		// …except the slotted controls (theme toggle), which sit under the overlay
-		.menu-nav:has(.menu-toggle[aria-expanded='true'])
-			> :global(:not(.menu, .menu-toggle)) {
+		/* …except the slotted controls (theme toggle), which sit under the overlay */
+		.menu:has(.menu__toggle[aria-expanded='true'])
+			> :global(:not(.menu__list, .menu__toggle)) {
 			visibility: hidden;
 			transition: visibility 0s 0.25s;
 		}
 
 		@media (prefers-reduced-motion: reduce) {
-			:global(body:has(.menu-toggle[aria-expanded='true'])),
-			.menu-nav:has(.menu-toggle[aria-expanded='true'])
-				> :global(:not(.menu, .menu-toggle)) {
-				transition: none; // no fade to wait for
+			:global(body:has(.menu__toggle[aria-expanded='true'])),
+			.menu:has(.menu__toggle[aria-expanded='true'])
+				> :global(:not(.menu__list, .menu__toggle)) {
+				transition: none; /* no fade to wait for */
 			}
 		}
 	}
 </style>
 
 <script>
-	const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle')
+	const toggle = document.querySelector<HTMLButtonElement>('.menu__toggle')
 	const menu = document.querySelector<HTMLUListElement>('#main-menu')
 
 	// aria-expanded is the only state; the CSS derives everything else from it.
