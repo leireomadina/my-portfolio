@@ -29,8 +29,8 @@
 	.theme-toggle {
 		margin: 0;
 		padding: 0;
-		width: 28px;
-		height: 28px;
+		width: max(28px, calc(1.5 * var(--text-xs)));
+		height: max(28px, calc(1.5 * var(--text-xs)));
 		background: none;
 		border: none;
 		border-radius: 10px;
@@ -54,6 +54,7 @@
 	}
 
 	.theme-toggle__icon {
+		display: block;
 		inline-size: 100%;
 		block-size: 100%;
 		stroke-linecap: round;
