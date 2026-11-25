@@ -41,13 +41,15 @@ The project-scoped `astro-docs` MCP server (`.mcp.json`) exposes `search_astro_d
 
 ## Styling
 
-- Styles are plain CSS (no Sass) in each component's `<style>` block. The full rules, tokens and BEM patterns are in `docs/styles.md`; follow it when writing styles.
-- Tokens are custom properties in `src/styles/base/tokens.css`: fonts (`--font-*`), colours named by hue (`--color-pink-dark`) and text sizes (`--text-xs` … `--text-2xl`). Components use the role colours from `themes.css` (`--color-bg`, `--color-text`, `--color-link`, `--color-accent`, `--color-border`), never hue colours or hex values. If a colour is missing, add it to `tokens.css` by hue and point a role to it.
-- Prefer fluid sizes (see below) and intrinsic layout over breakpoints. Use a breakpoint only when the layout really changes (the menu, the About grid, the experience card's title row and project list width, the page padding on phones and the body text on wide screens; see `docs/styles.md`). Breakpoints are mobile-first `min-width`: 680px (tablet) and 1180px (desktop); below tablet is `not all and (min-width: 680px)` (no overlap), and the tagline break uses `max-width: 480px`. Only use these values.
-- **Browser support**: Safari 15.4+, Chrome/Edge 105+ and Firefox 121+, set as `build.cssTarget` in `astro.config.mjs`. Check that any CSS feature you use works there. Write media queries as `min-width`/`max-width`, never range syntax (`width >= 680px`), which Safari before 16.4 ignores. Keep the `cssTarget` too: without it, esbuild rewrites `min-width` into range syntax during the build.
-- Don't size text in plain `vw`: it ignores the user's browser text size. Use the `--text-*` tokens for text. One-off fluid spacing is written in place as `clamp(<min>rem, <start>rem + <growth> * (100vw - <from>px) / <range>, <max>rem)`; see `docs/styles.md`.
-- **Dark mode**: a `dark` class on `<html>`, saved in `localStorage` under `COLOUR_MODE` (falling back to `prefers-color-scheme`). An inline script in `BaseLayout`'s `<head>` sets it before the first paint, so dark mode doesn't flash light; `ThemeToggler.astro` flips it and its `aria-pressed`. Keep the two scripts' key and values in sync. `src/styles/base/themes.css` only redefines the role colours on `html.dark`; components use the roles and never mention the theme (the toggle's own sun/moon icons are the one exception). Icons use `stroke="currentColor"` to follow the link colour.
-- Component styles are scoped by Astro by default; global rules go in `src/styles/`. Exception: a global rule that only exists for one component's behaviour stays in that component with `:global(...)` (e.g. `Menu.astro`'s `html`/`body` rules that lock scroll and hide the page while the menu is open).
+Plain CSS (no Sass) in each component's `<style>` block. The full rules are in `docs/styles.md`, imported here: @docs/styles.md
+
+The hard rules:
+
+- Components use the role colours from `themes.css` (`--color-text`, `--color-accent`…), never hue colours or hex values, and the `--text-*` tokens for text that changes with the screen. Never size text in plain `vw`.
+- Breakpoints only when the layout really changes, and only 680px, 1180px, `not all and (min-width: 680px)` and `max-width: 480px`. Write `min-width`/`max-width`, never range syntax, and keep `build.cssTarget` in `astro.config.mjs`.
+- Check that any CSS feature works in Safari 15.4+, Chrome/Edge 105+ and Firefox 121+.
+- **Dark mode**: a `dark` class on `<html>`, saved in `localStorage` under `COLOUR_MODE` (falling back to `prefers-color-scheme`). An inline script in `BaseLayout`'s `<head>` sets it before the first paint, so dark mode doesn't flash light; `ThemeToggler.astro` flips it and its `aria-pressed`. Keep the two scripts' key and values in sync.
+- Global rules go in `src/styles/`. Exception: a global rule that only exists for one component's behaviour stays in that component with `:global(...)` (e.g. `Menu.astro`'s scroll lock).
 
 ## Accessibility
 
