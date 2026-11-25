@@ -195,7 +195,7 @@ Safari 15.4+, Chrome/Edge 105+ and Firefox 121+, set as `build.cssTarget` in `as
 
 - [ ] One block, named after the component; flat elements; modifiers only with their base class.
 - [ ] Colours from the role tokens (`--color-text`, `--color-accent`…), never hex and never `.dark` selectors.
-- [ ] Text sizes from the `--text-*` scale; fonts from `--font-*`.
+- [ ] Text that changes with the screen uses a `--text-*` token; a fixed size (e.g. the mobile menu links at `2rem`) is a plain `rem` value. Fonts from `--font-*`.
 - [ ] Sizes in `rem`; fluid values with the `clamp()` shape above, `rem` ends.
 - [ ] No new breakpoint unless the layout really changes; `min-width`/`max-width`, never range syntax.
 - [ ] Interactive state in an attribute (`aria-*`/`data-*`), visible focus style, reduced-motion rule for any transition.
