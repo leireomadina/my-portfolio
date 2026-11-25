@@ -2,8 +2,6 @@
 
 How the styles of this site are organised, and the rules to follow when changing them.
 
-> This document is being written step by step during the styles refactor (fluid sizing → BEM clean-up, tokens and removing Sass → breakpoints). Sections marked _To do_ get written when that step lands, so everything here matches what is in the repo today.
-
 ## 1. Philosophy
 
 - **Plain CSS, no framework.** The site is plain Astro with scoped `<style>` blocks in standard CSS. No preprocessor, no CSS framework, no CSS-in-JS, no utility classes.
@@ -116,7 +114,18 @@ These change the layout, or a value that isn't a straight line between two scree
 
 ## 6. Breakpoints
 
-_To do (phase 3: whether breakpoints get names with Lightning CSS `@custom-media` or stay as plain values)._ For now they're written as plain values, always `min-width`/`max-width`: 680px, 1180px, and 480px for the tagline.
+Breakpoints are plain values, mobile-first:
+
+- `@media (min-width: 680px)`: tablet and up
+- `@media (min-width: 1180px)`: desktop
+- `@media not all and (min-width: 680px)`: below tablet, without overlapping 680px
+- `@media (max-width: 480px)`: only the tagline break in `Header.astro`
+
+Use only these values. Where each one is used and why: "Breakpoints that remain" above.
+
+Write `min-width`/`max-width`, never range syntax (`width >= 680px`): Safari before 16.4 ignores it.
+
+They aren't named (`@custom-media --tablet`): that needs Lightning CSS and a draft CSS feature, for three values used in a few places. Revisit it with the design system.
 
 ## 7. BEM rules and patterns
 
@@ -168,7 +177,11 @@ The build lowers it for older browsers. Don't nest one class inside another: wri
 
 ## 8. Browser support
 
-_To do (phase 3)._ Until then, see "Browser support" in `CLAUDE.md`.
+Safari 15.4+, Chrome/Edge 105+ and Firefox 121+, set as `build.cssTarget` in `astro.config.mjs`.
+
+- Before using a CSS feature, check on [caniuse.com](https://caniuse.com) that it works in all of them. `:has()` sets the Firefox minimum.
+- Nesting is lowered by the build for these targets, so it's safe.
+- Keep `cssTarget`: without it, the build rewrites `min-width` into range syntax, which Safari before 16.4 ignores.
 
 ## 9. Accessibility
 
@@ -182,7 +195,7 @@ _To do (phase 3)._ Until then, see "Browser support" in `CLAUDE.md`.
 
 - [ ] One block, named after the component; flat elements; modifiers only with their base class.
 - [ ] Colours from the role tokens (`--color-text`, `--color-accent`…), never hex and never `.dark` selectors.
-- [ ] Text sizes from the `--text-*` scale; fonts from `--font-*`.
+- [ ] Text that changes with the screen uses a `--text-*` token; a fixed size (e.g. the mobile menu links at `2rem`) is a plain `rem` value. Fonts from `--font-*`.
 - [ ] Sizes in `rem`; fluid values with the `clamp()` shape above, `rem` ends.
 - [ ] No new breakpoint unless the layout really changes; `min-width`/`max-width`, never range syntax.
 - [ ] Interactive state in an attribute (`aria-*`/`data-*`), visible focus style, reduced-motion rule for any transition.
