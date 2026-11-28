@@ -1,5 +1,13 @@
 ---
 import Link from '@components/Link.astro'
+import { person } from '@data/person.json'
+
+const { name, url, description } = person.employer
+const employerLink = {
+	href: url,
+	title: `Visit ${name}'s website`,
+	isExternalLink: true,
+}
 ---
 
 <div class="about__grid" id="about">
@@ -9,13 +17,7 @@ import Link from '@components/Link.astro'
 		creative processes.
 	</p>
 	<p class="about__intro about__intro--job">
-		Currently working at <Link
-			href="https://www.kaytek.es/"
-			title="Visit Kaytek's website"
-			isExternalLink
-		>
-			Kaytek
-		</Link>, an innovative startup focused on smart factory solutions.
+		Currently working at <Link {...employerLink}>{name}</Link>, {description}.
 	</p>
 </div>
 <div class="about__grid">
